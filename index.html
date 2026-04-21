@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ratko Šoc — Painter</title>
+  <meta name="description" content="Official portfolio website for painter Ratko Šoc." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html#home" class="brand brand-signature" aria-label="Ratko Šoc home">
+        <img src="images/sutan potpis.png" alt="Ratko Šoc signature" class="signature-mark" />
+      </a>
+<!-- 
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Radovi
+      </button>  proveriti ovo ispod pa ako se ne svidja vratiti na ovo-->
+
+<button class="nav-toggle works-toggle" type="button" aria-expanded="false" aria-controls="mobile-works-panel">
+  Pogledaj radove
+</button>
+
+<nav class="nav" id="site-nav">
+  <a href="#works">Radovi</a>
+  <a href="#about">Biografija</a>
+  <!-- <a href="#exhibitions">Izložbe</a> -->
+  <a href="#contact">Kontakt</a>
+</nav>
+
+<div class="mobile-works-panel" id="mobile-works-panel" aria-hidden="true">
+  <a href="paintings.html">Slike</a>
+  <a href="drawings.html">Crteži</a>
+  <a href="aforizmi.html">Aforizmi</a>
+</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <!-- <span class="eyebrow">Official website</span> -->
+          <!-- <h1>Paintings shaped by memory, silence, and inner tension.</h1> -->
+          <!-- <p>
+            A curated presentation of selected works moving between painting, drawing, and aphoristic expression.
+          </p> -->
+          <blockquote class="artist-quote">
+        <p>
+          „Crtež je nešto uzvišeno. To vam je rentgentski snimak slikara. Ako slikara
+          rezrežete uzduž i ne procuri iz njega tuš, onda nije slikar. </p>
+          <p class="quote-margin">Svi veliki
+          slikari bili su veliki crtači. Slikar ne mora tačno da crta, nego dobro.” 
+        </p>
+        <footer>— Ratko Šoć – Šutan, 1992</footer>
+      </blockquote>
+          <div class="hero-actions">
+            <a class="button" href="#works">Pogledaj Radove</a>
+            <!-- <a class="button-secondary" href="#about">Biografija</a> -->
+          </div>
+        </div>
+
+        <figure class="hero-figure hero-carousel">
+          <div class="hero-carousel-track">
+            <div class="hero-slide active">
+              <img src="images/thumbs/platno/ratko-soc-autoportret-thumbs.jpg" alt="Painting by Ratko Šoc 1" />
+            </div>
+            <div class="hero-slide">
+              <img src="images/thumbs/platno/ratko-soc-akordi-thumbs.jpg" alt="Painting by Ratko Šoc 2" />
+            </div>
+            <div class="hero-slide">
+              <img src="images/thumbs/platno/ratko-soc-neznam-naziv-thumbs.jpg" alt="Painting by Ratko Šoc 3" />
+            </div>
+            <div class="hero-slide">
+              <img src="images/thumbs/platno/ratko-soc-mislilac-thumbs.jpg" alt="Painting by Ratko Šoc 4" />
+            </div>
+            <div class="hero-slide">
+              <img src="images/thumbs/platno/ratko-soc-osam-tamburasa-triptih-thumbs.jpg" alt="Painting by Ratko Šoc 5" />
+            </div>
+          </div>
+
+          <div class="hero-progress">
+            <div class="hero-progress-bar" id="heroProgress"></div>
+          </div>
+
+          <div class="hero-dots">
+            <button class="hero-dot active" type="button" data-slide="0" aria-label="Go to slide 1"></button>
+            <button class="hero-dot" type="button" data-slide="1" aria-label="Go to slide 2"></button>
+            <button class="hero-dot" type="button" data-slide="2" aria-label="Go to slide 3"></button>
+            <button class="hero-dot" type="button" data-slide="3" aria-label="Go to slide 4"></button>
+            <button class="hero-dot" type="button" data-slide="4" aria-label="Go to slide 5"></button>
+          </div>
+
+          <!-- <figcaption class="hero-caption">
+            <span>Featured works</span>
+            <span>Oil on canvas</span>
+          </figcaption> -->
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="works">
+      <div class="container">
+        <!-- <div class="section-head">
+          <h2>Works</h2>
+          <p>
+            Three distinct sections of the artist’s practice, each opening into its own dedicated gallery.
+          </p>
+        </div> -->
+
+        <div class="entry-grid">
+          <a class="entry-card" href="paintings.html">
+            <div class="entry-media">
+              <img src="images/thumbs/platno/ratko-soc-skazaljke-stare-thumbs.jpg" alt="Paintings by Ratko Šoc" />
+            </div>
+            <div class="entry-meta">
+              <h3>Slike</h3>
+              <!-- <span>pogledaj</span> -->
+            </div>
+          </a>
+
+          <a class="entry-card" href="drawings.html">
+            <div class="entry-media">
+              <img src="images/thumbs/crtezi/ratko-soc-crtezi25-thumbs.jpg" alt="Drawings by Ratko Šoc" />
+            </div>
+            <div class="entry-meta">
+              <h3>Crteži</h3>
+              <!-- <span>Open gallery</span> -->
+            </div>
+          </a>
+
+          <a class="entry-card" href="aforizmi.html">
+            <div class="entry-media">
+              <img src="images/aforizmi-main.jpg" alt="Aforizmi by Ratko Šoc" />
+            </div>
+            <div class="entry-meta">
+              <h3>Aforizmi</h3>
+              <!-- <span>Open gallery</span> -->
+            </div>
+          </a>
+
+        
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="images/thumbs/fotografije/ratko-soc-zgrada-thumbs.jpg" alt="Representative work by Ratko Šoc" />
+        </div>
+
+        <div class="about-copy">
+          <h2>Biografija</h2>
+          <p>
+           Ratko Šoć rođen je na Cetinju 1938. godine. 
+          </p>
+          <p>
+            Crtač, slikar, ilustrator, pesnik, karikaturista, aforističar, grafički dizajener i nekad likovni pedagog. 1959 godine završio je srednju umetničku školu u Herceg Novom a 1975. diplomirao na Višoj pedagoškoj školi u Novom Sadu.
+          </p>
+          <p>
+            U periodu 1976-1977. bio je stipendista italijanske vlade na Akademiji lepih umetnosti u Rimu. Godine 1980. diplomirao je na Akademiji likovnih umetnosti u Novom Sadu.
+          </p>
+          <p>
+Napisao je 1975. tekst pesme „Osam tamburaša s Petrovaradina“.
+          </p>
+          <p>
+            Samostalno je izlagao preko 50 puta u zemlji i inostranstvu. Učesnik je brojnih kolektivnih izložbi. Dobitnik je više nagrada i priznanja. 
+Izloženi radovi, nastali od 1981. do 2011, rađeni su olovkom, tušem, perom i akrilnim bojama.
+
+          </p>
+          <p>
+            Živi i radi u Vrbasu.
+          </p>
+            <div class="about-actions">
+  <a href="fotografije.html" class="btn-ghost">Fotografije</a>
+  <button class="btn-ghost" id="openKritika">Likovna kritika</button>
+</div>
+      </div>
+        </div>
+      
+    </section>
+
+    <!-- <section class="section" id="exhibitions">
+      <div class="container list-grid">
+        <div class="list-block">
+          <h3>Exhibitions</h3>
+          <div class="list-item">
+            <strong>Solo Exhibition Title</strong>
+            <span>Belgrade, 2024</span>
+          </div>
+          <div class="list-item">
+            <strong>Group Exhibition Title</strong>
+            <span>Novi Sad, 2023</span>
+          </div>
+          <div class="list-item">
+            <strong>Selected Presentation</strong>
+            <span>Podgorica, 2022</span>
+          </div>
+        </div>
+
+        <div class="list-block">
+          <h3>Collections / Notes</h3>
+          <div class="list-item">
+            <strong>Private Collections</strong>
+            <span>Add cities or countries here</span>
+          </div>
+          <div class="list-item">
+            <strong>Publications</strong>
+            <span>Add catalogues or press here</span>
+          </div>
+          <div class="list-item">
+            <strong>Representation</strong>
+            <span>Add gallery if applicable</span>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Kontakt</h2>
+          <p>
+        Za sva pitanja u vezi izložbi, posete ateljeu, saradnje ili informacije o dostupnim radovima, slobodno se javite.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:socpedja@yahoo.com">socpedja@yahoo.com</a>
+            <a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      © <span id="year"></span> Ratko Šoc. All rights reserved.
+    </div>
+  </footer>
+<!-- LIKOVNA KRITIKA POPUP -->
+   <div class="kritika-overlay" id="kritikaOverlay">
+  <div class="kritika-modal">
+    <button class="kritika-close" id="closeKritika">Zatvori</button>
+
+    <div class="kritika-content">
+  
+      <blockquote class="kritika-quote">
+        <h2>Oaza figuralne umetnosti</h2>
+        <p>
+          Povodom pedeset godina stvaralaštva slikara i crtača Ratka Šoća izašla je monografija i u novembru bila priređena njegova retrospektiva u Galeriji Doma vojske u Beogradu.
+        </p>
+        <p>
+          Šoć jedan od onih crnogorskih barbanogenija koji su osvojili Beograd i Evropu vulkanskom maštom i osećanjem za likovnost. Rođen na Cetinju 1938.godine,završio Akademiju likovnih umetnosti u Novom Sadu,ali se nije poveo za trivijalnim u urbanom. Slikajući a još pre crtajući unutrašnju istoriju čoveka, njegovo rvanje sa smrću, Šoćove vizije sumarno obuhvataju ljudsku istoiju kao apokaliptičku i eshatološku.
+        </p>
+        <p>
+          Sasvim drugačije od savremena holivudske estetike koja je osvojila i svetsku fantastičnu umetnost, njegove slike su ispovest jednog usamljenika,Robinzona u Panonskom moru, u pustoši i otuđenosti ovoga vremena.
+        </p>
+        <p>
+          Zato što, kako bi Pikaso rekao, slika jer nosi sunce u stomaku, Šoć nije grozni likovni sudija, već i poeta koji poznaje čari nage žene, lepotu ptice i snenog pogleda. U njemu se bore anđeo i demon,a rezultat te borbe za ljudsko srce su njegove slike i crteži.
+        </p>
+        <footer>— Dejan Đorić, likovni kritičar. Beograd 2009.</footer>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drawings — Ratko Šoc</title>
+  <meta name="description" content="Drawings by Ratko Šoc." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-gallery-page="drawings">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand brand-signature" aria-label="Ratko Šoc home">
+        <img src="images/sutan potpis.png" alt="Ratko Šoc signature" class="signature-mark" />
+      </a>
+
+     <a href="index.html" class="nav-toggle gallery-home-link" aria-label="Povratak na početnu">
+  Početna
+</a>
+
+      <nav class="nav" id="site-nav">
+        <a href="index.html">Početna</a>
+        <a href="paintings.html">Slike</a>
+        <a href="drawings.html" class="is-current">Crteži</a>
+        <a href="aforizmi.html">Aforizmi</a>
+        <a href="karikature.html">Karikature</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="subhero">
+      <div class="container subhero-inner">
+        <!-- <span class="eyebrow">Galerija</span> -->
+        <h1>Crteži</h1>
+        <p> Kliknite na bilo koji crtež da ga otvorite u većem formatu i pogledate detalje ispod.</p>
+      </div>
+    </section>
+
+    <section class="section gallery-section">
+      <div class="container">
+        <div class="gallery-grid" id="galleryGrid">
+          <button class="gallery-card" type="button" data-gallery="drawings" data-index="0">
+            <img src="images/thumbs/crtezi/ratko-soc-crtezi1-thumbs.jpg" alt="Drawing 1" />
+          </button>
+          <button class="gallery-card" type="button" data-gallery="drawings" data-index="1">
+            <img src="images/thumbs/crtezi/ratko-soc-crtezi10-thumbs.jpg" alt="Drawing 2" />
+          </button>
+          <button class="gallery-card" type="button" data-gallery="drawings" data-index="2">
+            <img src="images/thumbs/crtezi/ratko-soc-crtezi11-thumbs.jpg" alt="Drawing 3" />
+          </button>
+          <button class="gallery-card" type="button" data-gallery="drawings" data-index="3">
+            <img src="images/thumbs/crtezi/ratko-soc-crtezi13-thumbs.jpg" alt="Drawing 4" />
+          </button>
+          <button class="gallery-card" type="button" data-gallery="drawings" data-index="4">
+            <img src="images/thumbs/crtezi/ratko-soc-crtezi14-thumbs.jpg" alt="Drawing 5" />
+          </button>
+          <button class="gallery-card" type="button" data-gallery="drawings" data-index="5">
+            <img src="images/thumbs/crtezi/ratko-soc-crtezi15-thumbs.jpg" alt="Drawing 6" />
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      © <span id="year"></span> Ratko Šoc. All rights reserved.
+    </div>
+  </footer>
+
+  <div class="lightbox gallery-lightbox-minimal" id="galleryLightbox" aria-hidden="true" role="dialog" aria-label="Artwork viewer">
+  <button class="lightbox-close minimal-close" type="button" id="closeGalleryLightbox" aria-label="Close artwork">Zatvori</button>
+
+  <div class="gallery-minimal-stage">
+    <button class="gallery-nav gallery-nav-prev" type="button" id="galleryPrevBtn" aria-label="Previous artwork">
+      Prethodni
+    </button>
+
+    <div class="gallery-minimal-figure-wrap">
+   <figure class="gallery-minimal-figure">
+  <button class="gallery-tap-zone gallery-tap-zone-left" type="button" id="galleryTapPrev" aria-label="Prethodna slika"></button>
+  <img id="galleryLightboxImage" src="" alt="" />
+  <button class="gallery-tap-zone gallery-tap-zone-right" type="button" id="galleryTapNext" aria-label="Sledeća slika"></button>
+</figure>
+
+      <div class="gallery-minimal-meta">
+        <span class="gallery-meta-title" id="galleryLightboxTitle"></span>
+        <span class="gallery-meta-sep">/</span>
+        <span class="gallery-meta-year" id="galleryLightboxYear"></span>
+        <span class="gallery-meta-sep">/</span>
+        <span class="gallery-meta-technique" id="galleryLightboxTechnique"></span>
+      </div>
+    </div>
+
+    <button class="gallery-nav gallery-nav-next" type="button" id="galleryNextBtn" aria-label="Next artwork">
+      Sledeći
+    </button>
+  </div>
+</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,106 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paintings — Ratko Šoc</title>
-  <meta name="description" content="Paintings by Ratko Šoc." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body data-gallery-page="paintings">
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand brand-signature" aria-label="Ratko Šoc home">
-        <img src="images/sutan potpis.png" alt="Ratko Šoc signature" class="signature-mark" />
-      </a>
 
-  <a href="index.html" class="nav-toggle gallery-home-link" aria-label="Povratak na početnu">
+<html lang="sr">
+<head>
+<meta charset="UTF-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<title>Slike — Ratko Šoć</title>
+<meta content="Galerija slika Ratka Šoća sa pregledom radova i prikazom u većem formatu." name="description"/>
+<meta property="og:title" content="Ratko Šoc" />
+<meta property="og:description" content="Slikarstvo, crteži i aforizmi Ratka Šoca" />
+<meta property="og:image" content="https://ratkosoc.com/images/og/og-image.jpg" />
+<meta property="og:url" content="https://ratkosoc.com/" />
+<meta property="og:type" content="website" />
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet">
+</link><link href="https://ratkosoc.com/paintings.html" rel="canonical"/><meta content="index,follow,max-image-preview:large" name="robots"/><meta content="Ratko Šoć" name="author"/><meta content="#f8f7f3" name="theme-color"/><meta content="summary_large_image" name="twitter:card"/><meta content="Slike — Ratko Šoć" name="twitter:title"/><meta content="Galerija slika Ratka Šoća sa pregledom radova i prikazom u većem formatu." name="twitter:description"/><meta content="website" property="og:type"/><meta content="sr_RS" property="og:locale"/><meta content="Ratko Šoć" property="og:site_name"/><meta content="Slike — Ratko Šoć" property="og:title"/><meta content="Galerija slika Ratka Šoća sa pregledom radova i prikazom u većem formatu." property="og:description"/><meta content="https://ratkosoc.com/paintings.html" property="og:url"/><meta content="https://ratkosoc.com/images/thumbs/platno/ratko-soc-akordi-thumbs.jpg" property="og:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Slike — Ratko Šoć", "url": "https://ratkosoc.com/paintings.html", "description": "Galerija slika Ratka Šoća sa pregledom radova i prikazom u većem formatu."}</script><meta content="https://ratkosoc.com/images/thumbs/platno/ratko-soc-akordi-thumbs.jpg" name="twitter:image"/></head>
+<body data-gallery-page="paintings">
+<header class="site-header">
+<div class="container header-inner">
+<a aria-label="Ratko Šoc home" class="brand brand-signature" href="index.html">
+<img alt="Ratko Šoc signature" class="signature-mark" decoding="async" height="80" src="images/sutan potpis.png" width="320"/>
+</a>
+<a aria-label="Povratak na početnu" class="nav-toggle gallery-home-link" href="index.html">
   Početna
 </a>
-
-      <nav class="nav" id="site-nav">
-        <a href="index.html">Početna</a>
-        <a href="paintings.html" class="is-current">Slike</a>
-        <a href="drawings.html">Crteži</a>
-        <a href="aforizmi.html">Aforizmi</a>
-        <a href="karikature.html">Karikature</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-   <section class="subhero gallery-subhero">
-      <div class="container subhero-inner">
-        <!-- <span class="eyebrow">Galerija</span> -->
-        <h1>Slike</h1>
-        <p> Kliknite na bilo koji rad da ga otvorite u većem formatu i pogledate detalje ispod.</p>
-      </div>
-    </section>
-
-    <section class="section gallery-section">
-      <div class="container">
-        <div class="gallery-grid" id="galleryGrid">
-          <button class="gallery-card" type="button" data-gallery="paintings" data-index="0">
-            <img src="images/thumbs/platno/ratko-soc-akordi-thumbs.jpg" alt="Painting 1" />
-          </button>
-          <button class="gallery-card" type="button" data-gallery="paintings" data-index="1">
-            <img src="images/thumbs/platno/ratko-soc-autoportret-thumbs.jpg" alt="Painting 1" />
-          </button>
-          <button class="gallery-card" type="button" data-gallery="paintings" data-index="2">
-            <img src="images/thumbs/platno/ratko-soc-baba-ljubica-thumbs.jpg" alt="Painting 1" />
-          </button>
-          <button class="gallery-card" type="button" data-gallery="paintings" data-index="3">
-            <img src="images/thumbs/platno/ratko-soc-bik-thumbs.jpg" alt="Painting 1" />
-          </button>
-          <button class="gallery-card" type="button" data-gallery="paintings" data-index="4">
-            <img src="images/thumbs/platno/ratko-soc-inator-thumbs.jpg" alt="Painting 1" />
-          </button>
-          <button class="gallery-card" type="button" data-gallery="paintings" data-index="5">
-            <img src="images/thumbs/platno/ratko-soc-izgubljena-ptica-thumbs.jpg" alt="Painting 1" />
-          </button>
+<nav class="nav" id="site-nav">
+<a href="index.html">Početna</a>
+<a class="is-current" href="paintings.html">Slike</a>
+<a href="drawings.html">Crteži</a>
+<a href="aforizmi.html">Aforizmi</a>
+<a href="karikature.html">Karikature</a>
+</nav>
 </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
+</header>
+<main>
+<section class="subhero gallery-subhero">
+<div class="container subhero-inner">
+<!-- <span class="eyebrow">Galerija</span> -->
+<h1>Slike</h1>
+<p> Kliknite na bilo koji rad da ga otvorite u većem formatu i pogledate detalje ispod.</p>
+</div>
+</section>
+<section class="section gallery-section">
+<div class="container">
+<div class="gallery-grid" id="galleryGrid">
+<button class="gallery-card" data-gallery="paintings" data-index="0" type="button">
+<img alt="Akordi" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-akordi-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="1" type="button">
+<img alt="Autoportret" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-autoportret-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="2" type="button">
+<img alt="Baba Ljubica" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-baba-ljubica-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="3" type="button">
+<img alt="Bik" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-bik-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="4" type="button">
+<img alt="Inator" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-inator-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="5" type="button">
+<img alt="Izgubljena ptica" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-izgubljena-ptica-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="6" type="button">
+<img alt="Juriš" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-juris-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="7" type="button">
+<img alt="Konte" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-konte-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="8" type="button">
+<img alt="Krik" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-krik-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="9" type="button">
+<img alt="Laku noć jutra moja" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-laku-noc-jutra-moja-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="10" type="button">
+<img alt="Milosrdni anđeo" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-milosrdni-andjeo-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="11" type="button">
+<img alt="Mislilac" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-mislilac-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="12" type="button">
+<img alt="Mnogo nas na kugli" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-mnogo-nas-na-kugli-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="13" type="button">
+<img alt="Napuštena" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-napustena-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="14" type="button">
+<img alt="Nepoznat naziv 2" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-neznam-naziv-2-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="15" type="button">
+<img alt="Nepoznat naziv 3" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-neznam-naziv-3-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="16" type="button">
+<img alt="Nepoznat naziv 4" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-neznam-naziv-4-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="17" type="button">
+<img alt="Nepoznat naziv 5" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-neznam-naziv-5-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="18" type="button">
+<img alt="Nepoznat naziv 6" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-neznam-naziv-6-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="19" type="button">
+<img alt="Nepoznat naziv" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-neznam-naziv-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="20" type="button">
+<img alt="Njegoš triptih" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-njegos-triptih-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="21" type="button">
+<img alt="Nostalgija" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-nostalgija-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="22" type="button">
+<img alt="Osam tamburaša triptih" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-osam-tamburasa-triptih-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="23" type="button">
+<img alt="Predvečerje" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-predvecerje-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="24" type="button">
+<img alt="Prijatelji" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-prijatelji-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="25" type="button">
+<img alt="Profil" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-profil-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="26" type="button">
+<img alt="Prometej" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-prometej-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="27" type="button">
+<img alt="Radost" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-radost-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="28" type="button">
+<img alt="Šarm" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-sarm-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="29" type="button">
+<img alt="Sećanje" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-secanje-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="30" type="button">
+<img alt="Skazaljke stare" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-skazaljke-stare-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="31" type="button">
+<img alt="Skok" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-skok-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="32" type="button">
+<img alt="Smrt autora" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-smrt-autora-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="33" type="button">
+<img alt="Treće jutro" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-trece-jutro-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="34" type="button">
+<img alt="Tren" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-tren-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="35" type="button">
+<img alt="Treptaj" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-treptaj-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="36" type="button">
+<img alt="Turisti" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-turisti-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="37" type="button">
+<img alt="Ujak iz Arizone" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-ujak-iz-arizone-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="38" type="button">
+<img alt="U mislima" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-u-mislima-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="39" type="button">
+<img alt="U nebo" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-u-nebo-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="40" type="button">
+<img alt="Zabrinuta" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-zabrinuta-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="41" type="button">
+<img alt="Zalet" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-zalet-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="42" type="button">
+<img alt="Žena iz Firence" decoding="async" height="1000" loading="lazy" src="images/thumbs/platno/ratko-soc-zena-iz-firence-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="43" type="button">
+<img alt="Akordi akril" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-akordi-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="44" type="button">
+<img alt="Bik akril" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-bik-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="45" type="button">
+<img alt="Čuđenje" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-cudjenje-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="46" type="button">
+<img alt="Kokot" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-kokot-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="47" type="button">
+<img alt="Lanac je lanac" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-lanacjelanac-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="48" type="button">
+<img alt="Na straži" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-na-strazi-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="49" type="button">
+<img alt="Ne tražite vreme prošlo" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-ne-trazite-vreme-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="50" type="button">
+<img alt="Noj" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-noj-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="51" type="button">
+<img alt="Nostalgija" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-nostalgija-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="52" type="button">
+<img alt="Osmatrač" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-osmatrac-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="53" type="button">
+<img alt="Petao" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-petao-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="54" type="button">
+<img alt="Pogled" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-pogled-thumbs.jpg" width="800"/>
+</button>
+<button class="gallery-card" data-gallery="paintings" data-index="55" type="button">
+<img alt="Prijatelji akril" decoding="async" height="1000" loading="lazy" src="images/thumbs/akril/ratko-soc-akril-prijatelji-thumbs.jpg" width="800"/>
+</button>
+</div>
+</div></section>
+</main>
+<footer class="site-footer">
+<div class="container">
       © <span id="year"></span> Ratko Šoc. All rights reserved.
     </div>
-  </footer>
-
- <div class="lightbox gallery-lightbox-minimal" id="galleryLightbox" aria-hidden="true" role="dialog" aria-label="Artwork viewer">
-  <button class="lightbox-close minimal-close" type="button" id="closeGalleryLightbox" aria-label="Close artwork">Zatvori</button>
-
-  <div class="gallery-minimal-stage">
-    <button class="gallery-nav gallery-nav-prev" type="button" id="galleryPrevBtn" aria-label="Previous artwork">
+</footer>
+<div aria-hidden="true" aria-label="Artwork viewer" class="lightbox gallery-lightbox-minimal" id="galleryLightbox" role="dialog">
+<button aria-label="Close artwork" class="lightbox-close minimal-close" id="closeGalleryLightbox" type="button">Zatvori</button>
+<div class="gallery-minimal-stage">
+<button aria-label="Previous artwork" class="gallery-nav gallery-nav-prev" id="galleryPrevBtn" type="button">
       Prethodna
     </button>
-
-    <div class="gallery-minimal-figure-wrap">
-     <figure class="gallery-minimal-figure">
-  <button class="gallery-tap-zone gallery-tap-zone-left" type="button" id="galleryTapPrev" aria-label="Prethodna slika"></button>
-  <img id="galleryLightboxImage" src="" alt="" />
-  <button class="gallery-tap-zone gallery-tap-zone-right" type="button" id="galleryTapNext" aria-label="Sledeća slika"></button>
+<div class="gallery-minimal-figure-wrap">
+<figure class="gallery-minimal-figure">
+<button aria-label="Prethodna slika" class="gallery-tap-zone gallery-tap-zone-left" id="galleryTapPrev" type="button"></button>
+<img alt="" decoding="async" id="galleryLightboxImage" src=""/>
+<button aria-label="Sledeća slika" class="gallery-tap-zone gallery-tap-zone-right" id="galleryTapNext" type="button"></button>
 </figure>
-
-      <div class="gallery-minimal-meta">
-        <span class="gallery-meta-title" id="galleryLightboxTitle"></span>
-        <span class="gallery-meta-sep">/</span>
-        <span class="gallery-meta-year" id="galleryLightboxYear"></span>
-        <span class="gallery-meta-sep">/</span>
-        <span class="gallery-meta-technique" id="galleryLightboxTechnique"></span>
-      </div>
-    </div>
-
-    <button class="gallery-nav gallery-nav-next" type="button" id="galleryNextBtn" aria-label="Next artwork">
+<div class="gallery-minimal-meta">
+<span class="gallery-meta-title" id="galleryLightboxTitle"></span>
+<span class="gallery-meta-sep">/</span>
+<span class="gallery-meta-year" id="galleryLightboxYear"></span>
+<span class="gallery-meta-sep">/</span>
+<span class="gallery-meta-technique" id="galleryLightboxTechnique"></span>
+</div>
+</div>
+<button aria-label="Next artwork" class="gallery-nav gallery-nav-next" id="galleryNextBtn" type="button">
       Sledeća
     </button>
-  </div>
 </div>
-
-  <script src="app.js"></script>
+</div>
+<script src="app.js"></script>
 </body>
 </html>

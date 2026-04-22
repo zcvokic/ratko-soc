@@ -2454,3 +2454,204 @@ body.aforizmi-page .brand:focus-visible .signature-mark {
     display: none !important;
   }
 }
+
+/* UREDNIJI RASPORED AFORIZAMA */
+
+.aforizmi-list .container {
+  max-width: 1180px;
+}
+
+.aforizmi-item {
+  margin-bottom: 34px;
+}
+
+.aforizmi-paper-wrap {
+  display: flex;
+}
+
+.aforizmi-paper {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  transform-origin: center center;
+}
+
+/* osnovne varijacije po redovima */
+.r1  { justify-content: flex-start; }
+.r2  { justify-content: flex-end; }
+.r3  { justify-content: center; }
+.r4  { justify-content: flex-start; }
+.r5  { justify-content: flex-end; }
+.r6  { justify-content: center; }
+.r7  { justify-content: flex-start; }
+.r8  { justify-content: flex-end; }
+.r9  { justify-content: center; }
+.r10 { justify-content: flex-start; }
+.r11 { justify-content: flex-end; }
+.r12 { justify-content: center; }
+.r13 { justify-content: flex-start; }
+.r14 { justify-content: flex-end; }
+.r15 { justify-content: center; }
+.r16 { justify-content: flex-start; }
+.r17 { justify-content: flex-end; }
+.r18 { justify-content: center; }
+.r19 { justify-content: flex-start; }
+.r20 { justify-content: flex-end; }
+.r21 { justify-content: center; }
+.r22 { justify-content: flex-start; }
+.r23 { justify-content: flex-end; }
+.r24 { justify-content: center; }
+.r25 { justify-content: flex-start; }
+.r26 { justify-content: flex-end; }
+.r27 { justify-content: center; }
+.r28 { justify-content: flex-start; }
+
+/* blage razlike u nagibu i širini, da izgleda prirodnije */
+.r1  .aforizmi-paper { max-width: 700px; transform: rotate(-1.1deg); }
+.r2  .aforizmi-paper { max-width: 640px; transform: rotate(1.3deg); }
+.r3  .aforizmi-paper { max-width: 760px; transform: rotate(-0.6deg); }
+.r4  .aforizmi-paper { max-width: 680px; transform: rotate(1deg); }
+.r5  .aforizmi-paper { max-width: 730px; transform: rotate(-1.4deg); }
+
+.r6  .aforizmi-paper { max-width: 610px; transform: rotate(0.8deg); }
+.r7  .aforizmi-paper { max-width: 690px; transform: rotate(-1deg); }
+.r8  .aforizmi-paper { max-width: 660px; transform: rotate(1.2deg); }
+.r9  .aforizmi-paper { max-width: 720px; transform: rotate(-0.7deg); }
+.r10 .aforizmi-paper { max-width: 650px; transform: rotate(1deg); }
+
+.r11 .aforizmi-paper { max-width: 610px; transform: rotate(-1.1deg); }
+.r12 .aforizmi-paper { max-width: 760px; transform: rotate(0.7deg); }
+.r13 .aforizmi-paper { max-width: 640px; transform: rotate(-0.9deg); }
+.r14 .aforizmi-paper { max-width: 620px; transform: rotate(1.1deg); }
+.r15 .aforizmi-paper { max-width: 650px; transform: rotate(-0.6deg); }
+
+.r16 .aforizmi-paper { max-width: 700px; transform: rotate(0.9deg); }
+.r17 .aforizmi-paper { max-width: 670px; transform: rotate(-1.3deg); }
+.r18 .aforizmi-paper { max-width: 720px; transform: rotate(0.6deg); }
+.r19 .aforizmi-paper { max-width: 740px; transform: rotate(-0.8deg); }
+.r20 .aforizmi-paper { max-width: 760px; transform: rotate(1deg); }
+
+.r21 .aforizmi-paper { max-width: 560px; transform: rotate(-1deg); }
+.r22 .aforizmi-paper { max-width: 610px; transform: rotate(1.2deg); }
+.r23 .aforizmi-paper { max-width: 570px; transform: rotate(-0.9deg); }
+.r24 .aforizmi-paper { max-width: 640px; transform: rotate(0.7deg); }
+.r25 .aforizmi-paper { max-width: 630px; transform: rotate(-1.1deg); }
+
+.r26 .aforizmi-paper { max-width: 600px; transform: rotate(0.9deg); }
+.r27 .aforizmi-paper { max-width: 720px; transform: rotate(-0.8deg); }
+.r28 .aforizmi-paper { max-width: 760px; transform: rotate(1deg); }
+
+/* bolji razmak unutra da svi deluju kao prvih 5 */
+.aforizmi-content {
+  padding: 38px 42px;
+}
+
+.aforizmi-text {
+  line-height: 1.5;
+}
+
+/* malo više vazduha za duže aforizme */
+.paper-e .aforizmi-content,
+.paper-f .aforizmi-content {
+  padding: 42px 44px;
+}
+
+/* da tape/ukrasi ostanu mirni */
+.aforizmi-paper:hover {
+  transform: translateY(-2px) rotate(var(--paper-rot, 0deg));
+}
+.r1  .aforizmi-paper { --paper-rot: -1.1deg; }
+.r2  .aforizmi-paper { --paper-rot: 1.3deg; }
+.r3  .aforizmi-paper { --paper-rot: -0.6deg; }
+.r4  .aforizmi-paper { --paper-rot: 1deg; }
+.r5  .aforizmi-paper { --paper-rot: -1.4deg; }
+.r6  .aforizmi-paper { --paper-rot: 0.8deg; }
+.r7  .aforizmi-paper { --paper-rot: -1deg; }
+.r8  .aforizmi-paper { --paper-rot: 1.2deg; }
+.r9  .aforizmi-paper { --paper-rot: -0.7deg; }
+.r10 .aforizmi-paper { --paper-rot: 1deg; }
+.r11 .aforizmi-paper { --paper-rot: -1.1deg; }
+.r12 .aforizmi-paper { --paper-rot: 0.7deg; }
+.r13 .aforizmi-paper { --paper-rot: -0.9deg; }
+.r14 .aforizmi-paper { --paper-rot: 1.1deg; }
+.r15 .aforizmi-paper { --paper-rot: -0.6deg; }
+.r16 .aforizmi-paper { --paper-rot: 0.9deg; }
+.r17 .aforizmi-paper { --paper-rot: -1.3deg; }
+.r18 .aforizmi-paper { --paper-rot: 0.6deg; }
+.r19 .aforizmi-paper { --paper-rot: -0.8deg; }
+.r20 .aforizmi-paper { --paper-rot: 1deg; }
+.r21 .aforizmi-paper { --paper-rot: -1deg; }
+.r22 .aforizmi-paper { --paper-rot: 1.2deg; }
+.r23 .aforizmi-paper { --paper-rot: -0.9deg; }
+.r24 .aforizmi-paper { --paper-rot: 0.7deg; }
+.r25 .aforizmi-paper { --paper-rot: -1.1deg; }
+.r26 .aforizmi-paper { --paper-rot: 0.9deg; }
+.r27 .aforizmi-paper { --paper-rot: -0.8deg; }
+.r28 .aforizmi-paper { --paper-rot: 1deg; }
+
+/* responsive da se na užem ekranu ne raspadne */
+@media (max-width: 900px) {
+  .aforizmi-paper-wrap {
+    justify-content: center !important;
+  }
+
+  .aforizmi-paper {
+    max-width: 100% !important;
+    transform: rotate(0deg) !important;
+  }
+
+  .aforizmi-content {
+    padding: 30px 26px;
+  }
+}
+
+/* =========================================
+   SEO + PERFORMANCE POLISH
+========================================= */
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(20, 20, 20, 0.7);
+  outline-offset: 3px;
+}
+
+img {
+  height: auto;
+}
+
+#galleryLightboxImage {
+  transition: opacity 180ms ease;
+}
+
+.quote-margin {
+  margin-top: 0.45em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-slide img,
+  .artist-quote,
+  .aforizmi-paper-wrap {
+    animation: none !important;
+    transform: none !important;
+  }
+}

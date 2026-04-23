@@ -188,8 +188,8 @@ const galleryData = {
     { src: 'images/gallery/platno/ratko-soc-krik-gallery.jpg', title: 'Krik', year: '1996', technique: 'Ulje na platnu' },
     { src: 'images/gallery/platno/ratko-soc-laku-noc-jutra-moja-gallery.jpg', title: 'Laku noć jutra moja', year: '2005', technique: 'Ulje na platnu' },
     { src: 'images/gallery/platno/ratko-soc-milosrdni-andjeo-gallery.jpg', title: 'Milosrdni anđeo', year: '1999', technique: 'Ulje na platnu' },
-    { src: 'images/gallery/platno/ratko-soc-misilac-gallery.jpg', title: 'Mislilac', year: '1998', technique: 'Ulje na platnu' },
-    { src: 'images/gallery/platno/ratko-soc-mnogo-nas-na-kugli-gallery.jpg', title: 'Mnogo nas na kugli, pređimo na kocku', year: '2014', technique: 'Ulje na platnu' },
+    { src: 'images/gallery/platno/ratko-soc-mislilac-gallery.jpg', title: 'Mislilac', year: '1998', technique: 'Ulje na platnu' },
+    { src: 'images/gallery/platno/ratko-soc-Mnogo-nas-na-kugli-gallery.jpg', title: 'Mnogo nas na kugli, pređimo na kocku', year: '2014', technique: 'Ulje na platnu' },
     { src: 'images/gallery/platno/ratko-soc-napustena-gallery.jpg', title: 'Napuštena', year: '1999', technique: 'Ulje na platnu' },
     { src: 'images/gallery/platno/ratko-soc-neznam-naziv-2-gallery.jpg', title: 'Nepoznat naziv 2', year: '', technique: '' },
     { src: 'images/gallery/platno/ratko-soc-neznam-naziv-3-gallery.jpg', title: 'Nepoznat naziv 3', year: '', technique: '' },
@@ -234,8 +234,7 @@ const galleryData = {
     { src: 'images/gallery/akril/ratko-soc-akril-petao-gallery.jpg', title: 'Petao', year: '2019', technique: 'Akril na platnu' },
     { src: 'images/gallery/akril/ratko-soc-akril-pogled-gallery.jpg', title: 'Pogled', year: '2021', technique: 'Akril na platnu' },
     { src: 'images/gallery/akril/ratko-soc-akril-prijatelji-gallery.jpg', title: 'Prijatelji', year: '2022', technique: 'Akril na platnu' },
-    { src: 'images/gallery/akril/ratko-soc-akril-profil-gallery.jpg', title: 'Profil', year: '2009', technique: 'Akril na platnu' }
-  ],
+     ],
 
   drawings: [],
   fotografije: [],
@@ -283,6 +282,7 @@ ensureDomGalleryData();
 (() => {
   const lightbox = $("#galleryLightbox");
   const lightboxImg = $("#galleryLightboxImage");
+  const lightboxFigure = $(".gallery-minimal-figure");
   const titleEl = $("#galleryLightboxTitle");
   const yearEl = $("#galleryLightboxYear");
   const techniqueEl = $("#galleryLightboxTechnique");
@@ -298,33 +298,77 @@ ensureDomGalleryData();
 
   let currentGallery = null;
   let currentIndex = 0;
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let isAnimating = false;
 
   function validItems(galleryName) {
     return (galleryData[galleryName] || []).filter(Boolean);
   }
 
+  function applyFadeAndSwap(item) {
+    if (!item || isAnimating) return;
+    isAnimating = true;
+
+    lightboxImg.classList.remove("is-visible");
+    lightboxImg.classList.add("is-fading");
+
+    window.setTimeout(() => {
+      lightboxImg.src = item.src;
+      lightboxImg.alt = item.title || "";
+
+      if (titleEl) titleEl.textContent = item.title || "";
+      if (yearEl) yearEl.textContent = item.year || "";
+      if (techniqueEl) techniqueEl.textContent = item.technique || "";
+
+      if (metaWrap) {
+        const hasMeta = Boolean(item.title || item.year || item.technique);
+        metaWrap.style.display = hasMeta ? "" : "none";
+      }
+
+      const reveal = () => {
+        lightboxImg.classList.remove("is-fading");
+        lightboxImg.classList.add("is-visible");
+        isAnimating = false;
+        lightboxImg.removeEventListener("load", reveal);
+      };
+
+      lightboxImg.addEventListener("load", reveal);
+
+      // fallback ako je slika već iz cache-a
+      if (lightboxImg.complete) {
+        reveal();
+      }
+    }, 120);
+  }
+
   function updateLightbox() {
     const item = galleryData[currentGallery]?.[currentIndex];
     if (!item) return;
-
-    lightboxImg.src = item.src;
-    lightboxImg.alt = item.title || '';
-
-    if (titleEl) titleEl.textContent = item.title || '';
-    if (yearEl) yearEl.textContent = item.year || '';
-    if (techniqueEl) techniqueEl.textContent = item.technique || '';
-
-    if (metaWrap) {
-      const hasMeta = Boolean(item.title || item.year || item.technique);
-      metaWrap.style.display = hasMeta ? '' : 'none';
-    }
+    applyFadeAndSwap(item);
   }
 
   function openLightbox(galleryName, index) {
     currentGallery = galleryName;
     currentIndex = index;
 
-    updateLightbox();
+    // bez fade-a na prvom otvaranju
+    const item = galleryData[currentGallery]?.[currentIndex];
+    if (!item) return;
+
+    lightboxImg.src = item.src;
+    lightboxImg.alt = item.title || "";
+    lightboxImg.classList.add("is-visible");
+
+    if (titleEl) titleEl.textContent = item.title || "";
+    if (yearEl) yearEl.textContent = item.year || "";
+    if (techniqueEl) techniqueEl.textContent = item.technique || "";
+
+    if (metaWrap) {
+      const hasMeta = Boolean(item.title || item.year || item.technique);
+      metaWrap.style.display = hasMeta ? "" : "none";
+    }
+
     lightbox.classList.add("active");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -338,16 +382,29 @@ ensureDomGalleryData();
 
   function nextImage() {
     const items = validItems(currentGallery);
-    if (!items.length) return;
+    if (!items.length || isAnimating) return;
     currentIndex = (currentIndex + 1) % items.length;
     updateLightbox();
   }
 
   function prevImage() {
     const items = validItems(currentGallery);
-    if (!items.length) return;
+    if (!items.length || isAnimating) return;
     currentIndex = (currentIndex - 1 + items.length) % items.length;
     updateLightbox();
+  }
+
+  function handleSwipe() {
+    const deltaX = touchEndX - touchStartX;
+    const minSwipeDistance = 45;
+
+    if (Math.abs(deltaX) < minSwipeDistance) return;
+
+    if (deltaX < 0) {
+      nextImage();
+    } else {
+      prevImage();
+    }
   }
 
   $$(".gallery-card").forEach((card) => {
@@ -363,6 +420,37 @@ ensureDomGalleryData();
   if (prevBtn) prevBtn.addEventListener("click", prevImage);
   if (tapNext) tapNext.addEventListener("click", nextImage);
   if (tapPrev) tapPrev.addEventListener("click", prevImage);
+
+  if (lightboxFigure) {
+    lightboxFigure.addEventListener(
+      "touchstart",
+      (e) => {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+        touchStartX = e.changedTouches[0].clientX;
+        touchEndX = touchStartX;
+      },
+      { passive: true }
+    );
+
+    lightboxFigure.addEventListener(
+      "touchmove",
+      (e) => {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+        touchEndX = e.changedTouches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    lightboxFigure.addEventListener(
+      "touchend",
+      (e) => {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipe();
+      },
+      { passive: true }
+    );
+  }
 
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) closeLightbox();

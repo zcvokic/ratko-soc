@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background:
     radial-gradient(circle at top left, rgba(180, 173, 158, 0.12), transparent 28%),
     radial-gradient(circle at bottom right, rgba(120, 120, 120, 0.06), transparent 24%),
@@ -50,11 +50,15 @@ a {
   margin: 0 auto;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(248, 247, 243, 0.78);
+  background: rgba(248, 247, 243, 0.88);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(20, 20, 20, 0.08);
 }
@@ -143,6 +147,51 @@ a {
   transform: scaleX(1);
 }
 
+/* =========================
+   GLOBAL TYPE
+========================= */
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(3.3rem, 7vw, 6rem);
+  margin-bottom: 26px;
+}
+
+.section {
+  padding: 86px 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+
+.section-head h2 {
+  font-size: clamp(2.6rem, 4vw, 3.8rem);
+}
+
+.section-head p {
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 0.97rem;
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
   padding: 80px 0 56px;
 }
@@ -156,7 +205,6 @@ a {
 
 .hero-copy {
   max-width: 500px;
- 
 }
 
 .eyebrow {
@@ -168,22 +216,8 @@ a {
   margin-bottom: 22px;
 }
 
-h1,
-h2,
-h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-}
-
-h1 {
-  font-size: clamp(3.3rem, 7vw, 6rem);
-  margin-bottom: 26px;
-}
-
-.hero-copy .artist-quote p  {
-  font-family: 'Literata', serif;
+.hero-copy .artist-quote p {
+  font-family: "Literata", serif;
   color: rgba(40, 36, 32, 0.75);
   line-height: 1.7;
 }
@@ -340,28 +374,58 @@ h1 {
   letter-spacing: 0.04em;
 }
 
-.section {
-  padding: 86px 0;
-  border-top: 1px solid var(--line);
+/* =========================
+   ARTIST QUOTE
+========================= */
+
+.artist-quote {
+  margin: 44px 0 50px;
+  max-width: 620px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: quoteReveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s;
 }
 
-.section-head {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 34px;
+.artist-quote p {
+  margin: 0;
+  font-family: "Literata", serif;
+  font-size: clamp(20px, 1.6vw, 26px);
+  line-height: 1.6;
+  letter-spacing: 0.005em;
+  color: rgba(20, 20, 20, 0.9);
+  text-wrap: pretty;
 }
 
-.section-head h2 {
-  font-size: clamp(2.6rem, 4vw, 3.8rem);
+.artist-quote footer {
+  font-family: "Literata", serif;
+  margin-top: 18px;
+  padding-top: 14px;
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(20, 20, 20, 0.42);
+  border-top: 1px solid rgba(20, 20, 20, 0.08);
+  display: block;
+  width: 100%;
+  text-align: right;
 }
 
-.section-head p {
-  max-width: 46ch;
-  color: var(--muted);
-  font-size: 0.97rem;
+@keyframes quoteReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+/* =========================
+   WORKS GRID
+========================= */
 
 .entry-grid {
   display: grid;
@@ -380,8 +444,8 @@ h1 {
   padding: 14px;
   border: 1px solid rgba(20, 20, 20, 0.06);
   transition: transform var(--transition), box-shadow var(--transition);
-  
 }
+
 .entry-media img {
   width: 100%;
   height: 420px;
@@ -402,10 +466,10 @@ h1 {
 
 .entry-meta {
   display: flex;
-  flex-direction: column;     /* stack text */
-  align-items: center;        /* center horizontally */
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  text-align: center;         /* center text */
+  text-align: center;
 }
 
 .entry-meta h3 {
@@ -419,6 +483,10 @@ h1 {
   font-size: 0.92rem;
 }
 
+/* =========================
+   ABOUT
+========================= */
+
 .about-grid {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
@@ -428,7 +496,6 @@ h1 {
 
 .about-image {
   background: rgba(255, 255, 255, 0.56);
-  /* padding: 20px; */
   box-shadow: var(--shadow-soft);
   border: 1px solid rgba(20, 20, 20, 0.06);
 }
@@ -456,6 +523,37 @@ h1 {
   font-size: 0.99rem;
 }
 
+.about-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 23px;
+  flex-wrap: wrap;
+}
+
+.btn-ghost {
+  display: inline-block;
+  padding: 10px 18px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(40, 36, 32, 0.8);
+  border: 1px solid rgba(40, 36, 32, 0.2);
+  background: transparent;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(40, 36, 32, 0.05);
+  border-color: rgba(40, 36, 32, 0.4);
+  color: rgba(40, 36, 32, 1);
+}
+
+/* =========================
+   LIST / CONTACT
+========================= */
 
 .list-grid {
   display: grid;
@@ -521,6 +619,10 @@ h1 {
   transform: translateY(-2px);
 }
 
+/* =========================
+   GALLERY PAGES
+========================= */
+
 .subhero {
   padding: 72px 0 24px;
 }
@@ -562,7 +664,9 @@ h1 {
   box-shadow: var(--shadow-soft);
 }
 
-/* MINIMAL GALLERY LIGHTBOX */
+/* =========================
+   LIGHTBOX
+========================= */
 
 .lightbox {
   position: fixed;
@@ -581,6 +685,12 @@ h1 {
 
 .gallery-lightbox-minimal {
   background: rgba(248, 247, 243, 0.985);
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.gallery-lightbox-minimal.active {
+  opacity: 1;
 }
 
 .gallery-minimal-stage {
@@ -605,6 +715,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .gallery-minimal-figure img,
@@ -615,6 +726,12 @@ h1 {
   height: auto;
   object-fit: contain;
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.06);
+  opacity: 1;
+  transition: opacity 500ms ease;
+}
+
+#galleryLightboxImage.is-visible {
+  opacity: 1;
 }
 
 .gallery-minimal-meta {
@@ -633,7 +750,7 @@ h1 {
 .gallery-meta-title,
 #galleryLightboxTitle {
   color: var(--text);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 1.4rem;
   line-height: 1;
 }
@@ -691,7 +808,26 @@ h1 {
   transform: none;
 }
 
-/* fallback for old lightbox controls */
+.gallery-tap-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 26%;
+  z-index: 2;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.gallery-tap-zone-left {
+  left: 0;
+}
+
+.gallery-tap-zone-right {
+  right: 0;
+}
+
 .lightbox-controls {
   display: flex;
   gap: 10px;
@@ -716,246 +852,228 @@ h1 {
   transform: translateY(-1px);
 }
 
-.site-footer {
-  font-family: 'Literata', serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.01em;
-  color: rgba(40, 36, 32, 0.7);
+/* =========================
+   KRITIKA POPUP
+========================= */
+
+.kritika-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.42);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  z-index: 999;
 }
 
-@media (max-width: 1024px) {
-  .hero-grid,
-  .about-grid,
-  .list-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .entry-grid,
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.kritika-overlay.active {
+  display: flex;
 }
 
-@media (max-width: 900px) {
-  .gallery-minimal-stage {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .gallery-nav {
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-  }
-
-  .gallery-nav-prev {
-    order: 2;
-  }
-
-  .gallery-minimal-figure-wrap {
-    order: 1;
-  }
-
-  .gallery-nav-next {
-    order: 3;
-  }
-
-  .gallery-minimal-figure img,
-  #galleryLightboxImage {
-    max-height: 68vh;
-  }
-
-  .gallery-minimal-meta {
-    margin-top: 16px;
-    gap: 8px;
-  }
-
-  .gallery-meta-title,
-  #galleryLightboxTitle {
-    width: 100%;
-    font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 720px) {
-  .container {
-    width: min(var(--max), calc(100% - 28px));
-  }
-
-  .header-inner {
-    min-height: 78px;
-    align-items: center;
-  }
-
-  .signature-mark {
-    height: 36px;
-  }
-
-  .nav-toggle {
-    display: inline-flex;
-  }
-
-  .nav {
-    position: absolute;
-    left: 14px;
-    right: 14px;
-    top: calc(100% + 10px);
-    background: rgba(248, 247, 243, 0.98);
-    border: 1px solid rgba(20, 20, 20, 0.08);
-    padding: 16px;
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-    box-shadow: var(--shadow-soft);
-  }
-
-  .nav.open {
-    display: flex;
-  }
-
-  .hero {
-    padding-top: 42px;
-  }
-
-  .hero-dots {
-    bottom: 68px;
-  }
-
-  .hero-progress {
-    left: 20px;
-    right: 20px;
-    bottom: 38px;
-  }
-
-  .entry-grid,
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .section-head,
-  .hero-caption,
-  .list-item,
-  .gallery-detail-item,
-  .entry-meta {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .entry-media img,
-  .gallery-card img {
-    height: auto;
-    aspect-ratio: 4 / 5;
-  }
-
-  .gallery-minimal-meta {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .gallery-meta-sep {
-    display: none;
-  }
-}
-/*artist-quote*/
-.artist-quote {
-  margin: 44px 0 50px;
-  max-width: 620px;
+.kritika-modal {
   position: relative;
-  padding-left: 0;
-
-  opacity: 0;
-  transform: translateY(28px);
-  animation: quoteReveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.4s;
+  width: min(70vw, 980px);
+  max-height: 82vh;
+  overflow-y: auto;
+  padding: 56px 64px;
+  border: 1px solid rgba(40, 36, 32, 0.08);
+  background:
+    linear-gradient(rgba(250, 247, 241, 0.94), rgba(250, 247, 241, 0.94)),
+    url("images/tekstura.jpg") center center / cover no-repeat;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.12),
+    0 30px 70px rgba(0, 0, 0, 0.18);
+  color: #2a2723;
 }
 
-
-
-/* main quote */
-.artist-quote p {
-  margin: 0;
-  font-family: 'Literata', serif;
-  font-size: clamp(20px, 1.6vw, 26px);
-  line-height: 1.6;
-  letter-spacing: 0.005em;
-  color: rgba(20, 20, 20, 0.9);
-  text-wrap: pretty;
+.kritika-modal::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(40, 36, 32, 0.06);
+  pointer-events: none;
 }
 
-/* author */
-.artist-quote footer {
-   font-family: 'Literata', serif;
-  margin-top: 18px;
-  padding-top: 14px;
-  font-size: 1rem;
-  letter-spacing: 0.16em;
+.kritika-close {
+  position: absolute;
+  top: 22px;
+  right: 26px;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(20, 20, 20, 0.42);
+  color: rgba(40, 36, 32, 0.6);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
 
-  border-top: 1px solid rgba(20, 20, 20, 0.08);
+.kritika-close:hover,
+.kritika-close:focus-visible {
+  color: rgba(40, 36, 32, 1);
+}
 
-  display: block;
-  width: 100%;
- 
+.kritika-content {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.kritika-content h2 {
+  margin: 0 0 22px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #1f1b18;
+}
+
+.kritika-content p {
+  margin: 0 0 20px;
+  font-family: "Literata", serif;
+  font-size: 1.1rem;
+  line-height: 2;
+  letter-spacing: 0.01em;
+  color: rgba(42, 39, 35, 0.92);
+}
+
+.kritika-content p:last-child {
+  margin-bottom: 0;
+}
+
+.kritika-quote footer {
   text-align: right;
+  font-family: "Literata", serif;
+  font-size: 1.2rem;
+  color: rgba(42, 39, 35, 0.92);
 }
 
-.quote-margin {
-  margin:1000px;
+/* =========================
+   KRITIKA PAGE
+========================= */
+
+.kritika-page {
+  background:
+    radial-gradient(circle at top left, rgba(180, 173, 158, 0.12), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(120, 120, 120, 0.06), transparent 24%),
+    var(--bg);
+  color: var(--text);
 }
 
-/* animations */
-@keyframes quoteReveal {
-  0% {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.kritika-page-main {
+  min-height: 100vh;
+  padding: 18px 0 72px;
 }
 
-
-
-/*quote mobile*/
-@media (max-width: 720px) {
-  .artist-quote {
-    max-width: 100%;
-    padding-left: 18px;
-    margin: 28px 0 34px;
-  }
-
-  .artist-quote::after {
-    font-size: 56px;
-    top: -18px;
-    left: -6px;
-  }
-
-  .artist-quote p {
-    font-size: 19px;
-    line-height: 1.5;
-  }
-
-  .artist-quote footer {
-    margin-top: 14px;
-    font-size: 10px;
-    letter-spacing: 0.12em;
-  }
+.kritika-page-wrap {
+  max-width: 900px;
 }
 
-/* AFORIZMI PAGE */
+.kritika-section {
+  scroll-margin-top: 110px;
+}
+
+.kritika-page-head {
+  margin-bottom: 26px;
+}
+
+.kritika-page-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+.kritika-section h2 {
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1;
+  margin: 0;
+}
+
+.kritika-page-body {
+  max-width: 760px;
+}
+
+.kritika-page-body h3 {
+  margin: 0 0 22px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.85rem, 3vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.12;
+  color: #1b1b1b;
+}
+
+.kritika-page-body p {
+  font-family: "Literata", serif;
+  color: rgba(26, 26, 26, 0.95);
+  font-size: 1.08rem;
+  line-height: 1.95;
+  margin: 0 0 22px;
+  max-width: 70ch;
+}
+
+.kritika-page-body p:last-child {
+  margin-bottom: 0;
+}
+
+.kritika-page-signoff {
+  margin-top: 34px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.45rem;
+  font-style: italic;
+  line-height: 1.3;
+  color: #111;
+}
+
+.citat {
+  margin: 0 0 36px;
+  padding: 0 0 0 22px;
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem;
+  line-height: 1.45;
+  font-style: italic;
+  color: #111;
+  max-width: 30ch;
+}
+
+.citat span {
+  display: block;
+  margin-top: 14px;
+  font-size: 1.1rem;
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* =========================
+   AFORIZMI PAGE
+========================= */
+
 .aforizmi-page {
   background-color: #d8d3cb;
   color: #2f2a25;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
 }
 
 .aforizmi-page .site-header {
-  background: rgba(216, 211, 203, 0.82);
+  background: rgba(248, 247, 243, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(20, 20, 20, 0.08);
+  transition: box-shadow 300ms ease, background 300ms ease;
+}
+
+.aforizmi-page.scrolled .site-header {
+  background: rgba(248, 247, 243, 0.92);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.04),
+    0 14px 34px rgba(0, 0, 0, 0.1);
 }
 
 .aforizmi-bg-texture,
@@ -970,7 +1088,7 @@ h1 {
   inset: -60px;
   z-index: 0;
   background:
-    linear-gradient(rgba(255,255,255,0.72), rgba(255,255,255,0.72)),
+    linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
     url("images/tekstura.jpg") center center / cover no-repeat;
   transform: translate3d(0, 0, 0) scale(1.08);
   will-change: transform;
@@ -1009,7 +1127,7 @@ h1 {
 
 .aforizmi-hero h1 {
   margin-bottom: 16px;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(34px, 5vw, 58px);
   font-weight: 600;
   line-height: 1.08;
@@ -1031,17 +1149,21 @@ h1 {
   border-top: 0;
 }
 
+.aforizmi-list .container {
+  max-width: 1180px;
+}
+
 .aforizmi-item {
   display: flex;
   justify-content: center;
   padding: 22px 0 56px;
+  margin-bottom: 34px;
 }
 
 .aforizmi-paper-wrap {
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: center;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 900ms ease, transform 900ms ease;
@@ -1052,17 +1174,11 @@ h1 {
   transform: translateY(0);
 }
 
-.aforizmi-paper-wrap.r1 { --paper-rotate: -0.8deg; }
-.aforizmi-paper-wrap.r2 { --paper-rotate: 0.9deg; }
-.aforizmi-paper-wrap.r3 { --paper-rotate: -0.45deg; }
-.aforizmi-paper-wrap.r4 { --paper-rotate: 0.7deg; }
-.aforizmi-paper-wrap.r5 { --paper-rotate: -0.9deg; }
-.aforizmi-paper-wrap.r6 { --paper-rotate: 0.55deg; }
-
 .aforizmi-paper {
   position: relative;
-  width: 100%;
-  transform: rotate(var(--paper-rotate, 0deg));
+  width: min(100%, 760px);
+  margin: 0 auto;
+  transform-origin: center center;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.78), rgba(255,255,255,0.36)),
     rgba(249, 245, 237, 0.82);
@@ -1078,7 +1194,6 @@ h1 {
 }
 
 .aforizmi-paper:hover {
-  transform: rotate(var(--paper-rotate, 0deg)) translateY(-3px);
   box-shadow:
     0 4px 8px rgba(0,0,0,0.05),
     0 18px 34px rgba(0,0,0,0.14),
@@ -1160,10 +1275,15 @@ h1 {
 .aforizmi-tape.right { left: 74%; transform: translateX(-50%) rotate(2.8deg); width: 112px; }
 .aforizmi-tape.center { left: 50%; transform: translateX(-50%) rotate(-1deg); }
 
-.aforizmi-content { position: relative; z-index: 2; }
+.aforizmi-content {
+  position: relative;
+  z-index: 2;
+}
+
 .aforizmi-text {
   margin: 20px 0 34px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Literata", serif;
+  font-weight: 400;
   font-size: clamp(26px, 3.3vw, 35px);
   line-height: 1.82;
   max-width: 32ch;
@@ -1174,8 +1294,9 @@ h1 {
 .aforizmi-author {
   display: block;
   max-width: 32ch;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(47, 42, 37, 0.62);
 }
@@ -1188,13 +1309,38 @@ h1 {
 .aforizmi-paper.paper-f { max-width: 720px; padding: 90px 56px 100px; }
 
 .aforizmi-paper.align-left .aforizmi-text,
-.aforizmi-paper.align-left .aforizmi-author { margin-left: 0; margin-right: auto; text-align: left; }
+.aforizmi-paper.align-left .aforizmi-author {
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
 .aforizmi-paper.align-center .aforizmi-text,
-.aforizmi-paper.align-center .aforizmi-author { margin-left: auto; margin-right: auto; text-align: center; }
-.aforizmi-paper.signature-right .aforizmi-author { margin-left: auto; margin-right: 0; text-align: right; }
-.aforizmi-paper.signature-left .aforizmi-author { margin-left: 0; margin-right: auto; text-align: left; }
-.aforizmi-paper.tight .aforizmi-text { max-width: 28ch; }
-.aforizmi-paper.airy .aforizmi-text { max-width: 34ch; }
+.aforizmi-paper.align-center .aforizmi-author {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.aforizmi-paper.signature-right .aforizmi-author {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
+
+.aforizmi-paper.signature-left .aforizmi-author {
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+.aforizmi-paper.tight .aforizmi-text {
+  max-width: 28ch;
+}
+
+.aforizmi-paper.airy .aforizmi-text {
+  max-width: 34ch;
+}
 
 .aforizmi-brush {
   position: absolute;
@@ -1210,291 +1356,100 @@ h1 {
   opacity: 0.72;
 }
 
-@media (max-width: 768px) {
-  .aforizmi-bg-texture { inset: -20px; transform: translate3d(0, 0, 0) scale(1.03); }
-  .aforizmi-hero { min-height: 36vh; padding-top: 48px; }
-  .aforizmi-item { padding: 18px 0 42px; }
-  .paper-a, .paper-b, .paper-c, .paper-d, .paper-e, .aforizmi-paper.paper-f { max-width: 100%; padding-left: 26px; padding-right: 26px; }
-  .aforizmi-paper.paper-a { padding-top: 66px; padding-bottom: 48px; }
-  .aforizmi-paper.paper-b { padding-top: 76px; padding-bottom: 58px; }
-  .aforizmi-paper.paper-c { padding-top: 58px; padding-bottom: 70px; }
-  .aforizmi-paper.paper-d { padding-top: 82px; padding-bottom: 52px; }
-  .aforizmi-paper.paper-e { padding-top: 62px; padding-bottom: 60px; }
-  .aforizmi-paper.paper-f { padding-top: 72px; padding-bottom: 74px; }
-  .aforizmi-line { left: 26px; width: 54px; }
-  .aforizmi-text, .aforizmi-author { max-width: 100%; }
-  .aforizmi-tape, .aforizmi-tape.left, .aforizmi-tape.right, .aforizmi-tape.center { width: 94px; height: 28px; top: -12px; left: 50%; transform: translateX(-50%) rotate(-1deg); }
-  .aforizmi-brush { width: 126px; height: 32px; right: -16px; bottom: 18px; }
-  .aforizmi-paper-shadow { left: 4%; right: 4%; height: 24px; bottom: -14px; }
-}
+/* raspored redova */
+.r1  { justify-content: flex-start; }
+.r2  { justify-content: flex-end; }
+.r3  { justify-content: center; }
+.r4  { justify-content: flex-start; }
+.r5  { justify-content: flex-end; }
+.r6  { justify-content: center; }
+.r7  { justify-content: flex-start; }
+.r8  { justify-content: flex-end; }
+.r9  { justify-content: center; }
+.r10 { justify-content: flex-start; }
+.r11 { justify-content: flex-end; }
+.r12 { justify-content: center; }
+.r13 { justify-content: flex-start; }
+.r14 { justify-content: flex-end; }
+.r15 { justify-content: center; }
+.r16 { justify-content: flex-start; }
+.r17 { justify-content: flex-end; }
+.r18 { justify-content: center; }
+.r19 { justify-content: flex-start; }
+.r20 { justify-content: flex-end; }
+.r21 { justify-content: center; }
+.r22 { justify-content: flex-start; }
+.r23 { justify-content: flex-end; }
+.r24 { justify-content: center; }
+.r25 { justify-content: flex-start; }
+.r26 { justify-content: flex-end; }
+.r27 { justify-content: center; }
+.r28 { justify-content: flex-start; }
 
-/* FIX: header na aforizmi strani */
-body.aforizmi-page .site-header {
-
-   background: rgba(248, 247, 243, 0.92);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(20, 20, 20, 0.08);
-}
-
-/* aforizmi font */
-
-
-
-
-/* aforizmi font */
-body.aforizmi-page .aforizmi-text {
-  font-family: 'Literata', serif;
-  font-weight: 400;
-}
-
-body.aforizmi-page .aforizmi-author {
-  font-family: 'Inter', sans-serif;
-  letter-spacing: 0.18em;
-}
-
-
-/* AFORIZMI HEADER REFINEMENT */
-body.aforizmi-page .site-header {
-  background: rgba(248, 247, 243, 0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(20, 20, 20, 0.08);
-  transition: box-shadow 300ms ease, background 300ms ease;
-}
-
-body.aforizmi-page.scrolled .site-header {
-  background: rgba(248, 247, 243, 0.92);
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.04),
-    0 14px 34px rgba(0, 0, 0, 0.10);
-}
-
-body.aforizmi-page .site-header .nav {
-  gap: 28px;
-}
-
-body.aforizmi-page .site-header .nav a {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(40, 36, 32, 0.78);
-  opacity: 0.78;
-  transition: color 200ms ease, opacity 200ms ease, letter-spacing 200ms ease;
-}
-
-body.aforizmi-page .site-header .nav a:hover,
-body.aforizmi-page .site-header .nav a:focus-visible,
-body.aforizmi-page .site-header .nav a.is-current {
-  color: rgba(40, 36, 32, 1);
-  opacity: 1;
-}
-
-body.aforizmi-page .signature-mark {
-  opacity: 0.9;
-}
-
-body.aforizmi-page .brand:hover .signature-mark,
-body.aforizmi-page .brand:focus-visible .signature-mark {
-  opacity: 1;
-}
+.r1  .aforizmi-paper { max-width: 700px; transform: rotate(-1.1deg); }
+.r2  .aforizmi-paper { max-width: 640px; transform: rotate(1.3deg); }
+.r3  .aforizmi-paper { max-width: 760px; transform: rotate(-0.6deg); }
+.r4  .aforizmi-paper { max-width: 680px; transform: rotate(1deg); }
+.r5  .aforizmi-paper { max-width: 730px; transform: rotate(-1.4deg); }
+.r6  .aforizmi-paper { max-width: 610px; transform: rotate(0.8deg); }
+.r7  .aforizmi-paper { max-width: 690px; transform: rotate(-1deg); }
+.r8  .aforizmi-paper { max-width: 660px; transform: rotate(1.2deg); }
+.r9  .aforizmi-paper { max-width: 720px; transform: rotate(-0.7deg); }
+.r10 .aforizmi-paper { max-width: 650px; transform: rotate(1deg); }
+.r11 .aforizmi-paper { max-width: 610px; transform: rotate(-1.1deg); }
+.r12 .aforizmi-paper { max-width: 760px; transform: rotate(0.7deg); }
+.r13 .aforizmi-paper { max-width: 640px; transform: rotate(-0.9deg); }
+.r14 .aforizmi-paper { max-width: 710px; transform: rotate(1.1deg); }
+.r15 .aforizmi-paper { max-width: 690px; transform: rotate(-0.5deg); }
+.r16 .aforizmi-paper { max-width: 740px; transform: rotate(0.9deg); }
+.r17 .aforizmi-paper { max-width: 630px; transform: rotate(-1deg); }
+.r18 .aforizmi-paper { max-width: 760px; transform: rotate(0.5deg); }
+.r19 .aforizmi-paper { max-width: 700px; transform: rotate(-1.2deg); }
+.r20 .aforizmi-paper { max-width: 640px; transform: rotate(1deg); }
+.r21 .aforizmi-paper { max-width: 760px; transform: rotate(-0.4deg); }
+.r22 .aforizmi-paper { max-width: 690px; transform: rotate(1deg); }
+.r23 .aforizmi-paper { max-width: 650px; transform: rotate(-1.1deg); }
+.r24 .aforizmi-paper { max-width: 730px; transform: rotate(0.6deg); }
+.r25 .aforizmi-paper { max-width: 680px; transform: rotate(-0.8deg); }
+.r26 .aforizmi-paper { max-width: 640px; transform: rotate(1.1deg); }
+.r27 .aforizmi-paper { max-width: 760px; transform: rotate(-0.5deg); }
+.r28 .aforizmi-paper { max-width: 700px; transform: rotate(0.8deg); }
 
 /* =========================
-   ABOUT BUTTONS
+   FOOTER
 ========================= */
 
-.about-actions {
-  margin-top: 24px;
-  display: flex;
-  justify-content: flex-start; /* 👉 pomera desno */
-  gap: 23px;
-  
-}
-
-.btn-ghost {
-  display: inline-block;
-  padding: 10px 18px;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(40, 36, 32, 0.8);
-  border: 1px solid rgba(40, 36, 32, 0.2);
-  background: transparent;
-  cursor: pointer;
-  transition: all 200ms ease;
-}
-
-.btn-ghost:hover {
-  background: rgba(40, 36, 32, 0.05);
-  border-color: rgba(40, 36, 32, 0.4);
-  color: rgba(40, 36, 32, 1);
-}
-
-/* =========================
-   KRITIKA POPUP
-========================= */
-
-/* =========================
-   KRITIKA POPUP
-========================= */
-
-.kritika-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(17, 17, 17, 0.42);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-  z-index: 999;
-}
-
-.kritika-overlay.active {
-  display: flex;
-}
-
-.kritika-modal {
-  position: relative;
-  width: min(70vw, 980px);
-  max-height: 82vh;
-  overflow-y: auto;
-  padding: 56px 64px;
-  border: 1px solid rgba(40, 36, 32, 0.08);
-  background:
-    linear-gradient(rgba(250, 247, 241, 0.94), rgba(250, 247, 241, 0.94)),
-    url("images/tekstura.jpg") center center / cover no-repeat;
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.12),
-    0 30px 70px rgba(0, 0, 0, 0.18);
-  color: #2a2723;
-}
-
-.kritika-modal::before {
-  content: "";
-  position: absolute;
-  inset: 16px;
-  border: 1px solid rgba(40, 36, 32, 0.06);
-  pointer-events: none;
-}
-
-.kritika-close {
-  position: absolute;
-  top: 22px;
-  right: 26px;
-
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-
-  color: rgba(40, 36, 32, 0.6);
-
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  transition: all 200ms ease;
-}
-
-.kritika-close:hover,
-.kritika-close:focus-visible {
-  color: rgba(40, 36, 32, 1);
-}
-
-.kritika-content {
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-.kritika-content h2 {
-  margin: 0 0 22px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: #1f1b18;
-}
-
-.kritika-content p {
-  margin: 0 0 20px;
-  font-family: 'Literata', serif;
-  font-size: 1.1rem;      /* 👉 povećano */
-  line-height: 2;         /* 👉 više vazduha */
+.site-footer {
+  font-family: "Literata", serif;
+  font-size: 0.95rem;
   letter-spacing: 0.01em;
-  color: rgba(42, 39, 35, 0.92);
+  color: rgba(40, 36, 32, 0.7);
+  padding: 26px 0 34px;
 }
 
-.kritika-content p:last-child {
-  margin-bottom: 0;
+.kritika-page .site-footer {
+  border-top: 1px solid rgba(20, 20, 20, 0.08);
 }
 
-.kritika-quote footer {
-  text-align: right;
-   font-family: 'Literata', serif;
-   font-size: 1.2rem;
-   color: rgba(42, 39, 35, 0.92);
-}
+/* =========================
+   DESKTOP / TABLET
+========================= */
 
-@media (max-width: 900px) {
-  .kritika-overlay {
-    padding: 18px;
-  }
-
-  .kritika-modal {
-    width: min(100vw - 36px, 900px);
-    max-height: 86vh;
-    padding: 44px 28px 34px;
-  }
-
-  .kritika-content {
-    max-width: 100%;
-  }
-
-  .kritika-content h2 {
-    margin-bottom: 18px;
-  }
-
-  .kritika-content p {
-    font-size: 1rem;
-    line-height: 1.82;
-  }
-}
-
-/* =========================================
-   RESPONSIVE REWORK — TABLET + MOBILE
-   DODAJ NA SAM KRAJ style.css
-========================================= */
-
-/* TABLET */
 @media (max-width: 1024px) {
   .hero {
     padding: 56px 0 40px;
   }
 
   .hero-grid,
-  .about-grid {
+  .about-grid,
+  .list-grid {
     grid-template-columns: 1fr;
     gap: 36px;
   }
 
-  .hero-copy {
-    max-width: 100%;
-  }
-
-  .hero-figure {
-    max-width: 760px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .about-image {
-    max-width: 760px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
+  .hero-copy,
+  .hero-figure,
+  .about-image,
   .about-copy {
     max-width: 760px;
     width: 100%;
@@ -1528,9 +1483,81 @@ body.aforizmi-page .brand:focus-visible .signature-mark {
   }
 }
 
-/* PHONE + SMALL TABLET */
+@media (max-width: 900px) {
+  .gallery-minimal-stage {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .gallery-nav {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+  }
+
+  .gallery-nav-prev { order: 2; }
+  .gallery-minimal-figure-wrap { order: 1; }
+  .gallery-nav-next { order: 3; }
+
+  .gallery-minimal-figure img,
+  #galleryLightboxImage {
+    max-height: 68vh;
+  }
+
+  .gallery-minimal-meta {
+    margin-top: 16px;
+    gap: 8px;
+  }
+
+  .gallery-meta-title,
+  #galleryLightboxTitle {
+    width: 100%;
+    font-size: 1.25rem;
+  }
+
+  .kritika-overlay {
+    padding: 18px;
+  }
+
+  .kritika-modal {
+    width: min(100vw - 36px, 900px);
+    max-height: 86vh;
+    padding: 44px 28px 34px;
+  }
+
+  .kritika-content {
+    max-width: 100%;
+  }
+
+  .kritika-content h2 {
+    margin-bottom: 18px;
+  }
+
+  .kritika-content p {
+    font-size: 1rem;
+    line-height: 1.82;
+  }
+
+  .kritika-page-body p {
+    font-size: 1rem;
+    line-height: 1.82;
+  }
+
+  .kritika-page-signoff {
+    font-size: 1.3rem;
+  }
+
+  .citat {
+    font-size: 1.45rem;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 767px) {
-  html, body {
+  html,
+  body {
     overflow-x: hidden;
   }
 
@@ -1561,88 +1588,100 @@ body.aforizmi-page .brand:focus-visible .signature-mark {
     height: 34px;
   }
 
-  /* pravi hamburger */
-  .nav-toggle {
-    width: 46px;
-    height: 46px;
+  .nav {
+    display: none !important;
+  }
+
+  .nav-toggle.works-toggle,
+  .gallery-home-link {
+    all: unset;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    gap: 5px;
-    padding: 0;
-    border: 1px solid rgba(20, 20, 20, 0.12);
-    background: rgba(255, 255, 255, 0.6);
+    min-height: 40px;
+    padding: 0 14px;
+    border: 1px solid rgba(20, 20, 20, 0.14);
     border-radius: 999px;
+    background: rgba(255, 255, 255, 0.74);
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(20, 20, 20, 0.88);
+    white-space: nowrap;
     cursor: pointer;
-    z-index: 120;
-    flex-shrink: 0;
+    transition: all 220ms ease;
   }
 
-  .nav-toggle span {
-    width: 18px;
-    height: 1.5px;
-    background: var(--text);
-    display: block;
-    transition: transform 220ms ease, opacity 220ms ease;
+  .nav-toggle.works-toggle:hover,
+  .nav-toggle.works-toggle:focus-visible,
+  .gallery-home-link:hover,
+  .gallery-home-link:focus-visible {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(20, 20, 20, 0.22);
+    transform: translateY(-1px);
   }
 
-  .nav-toggle.is-open span:nth-child(1) {
-    transform: translateY(6.5px) rotate(45deg);
+  .nav-toggle.works-toggle.is-open {
+    background: rgba(20, 20, 20, 0.92);
+    color: #fff;
+    border-color: rgba(20, 20, 20, 0.92);
   }
 
-  .nav-toggle.is-open span:nth-child(2) {
-    opacity: 0;
+  .nav-toggle.works-toggle span,
+  .gallery-home-link::before,
+  .gallery-home-link::after {
+    display: none !important;
+    content: none !important;
   }
 
-  .nav-toggle.is-open span:nth-child(3) {
-    transform: translateY(-6.5px) rotate(-45deg);
-  }
-
-  .nav {
+  .mobile-works-panel {
     position: fixed;
     top: 72px;
     left: 12px;
     right: 12px;
-    background: rgba(248, 247, 243, 0.98);
-    border: 1px solid rgba(20, 20, 20, 0.08);
-    box-shadow: var(--shadow-soft);
-    padding: 18px 18px 20px;
     display: none;
     flex-direction: column;
-    align-items: stretch;
-    gap: 4px;
+    gap: 0;
+    padding: 10px 14px;
+    background: rgba(248, 247, 243, 0.98);
+    border: 1px solid rgba(20, 20, 20, 0.08);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
     z-index: 110;
   }
 
-  .nav.open {
+  .mobile-works-panel.open {
     display: flex;
   }
 
-  .nav a {
-    font-size: 0.82rem;
-    padding: 10px 0;
-    color: var(--text);
+  .mobile-works-panel a {
+    display: block;
+    width: 100%;
+    padding: 14px 4px;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(20, 20, 20, 0.9);
+    border-bottom: 1px solid rgba(20, 20, 20, 0.06);
   }
 
-  .nav a::after {
-    display: none;
+  .mobile-works-panel a:last-child {
+    border-bottom: none;
   }
 
-  /* mobilni raspored sekcija */
   main {
     display: flex;
     flex-direction: column;
   }
 
   .hero {
-    display: none;
+    display: none !important;
   }
 
   #about {
     order: 1;
     border-top: 0;
-    padding-top: 34px;
+    padding-top: 24px;
   }
 
   #works {
@@ -1651,10 +1690,11 @@ body.aforizmi-page .brand:focus-visible .signature-mark {
 
   #contact {
     order: 3;
+    padding-top: 40px;
   }
 
   .section {
-    padding: 56px 0;
+    padding: 40px 0;
   }
 
   .about-grid {
@@ -1662,20 +1702,16 @@ body.aforizmi-page .brand:focus-visible .signature-mark {
     gap: 24px;
   }
 
-  .about-image {
-    order: 1;
+  .about-image { order: 1; }
+  .about-copy { order: 2; }
+
+  #about .about-copy h2,
+  #contact h2 {
+    display: none;
   }
 
-  .about-copy {
-    order: 2;
-  }
-
-  .about-copy h2 {
-    font-size: clamp(2.2rem, 9vw, 3rem);
-    margin-bottom: 1.4rem;
-  }
-
-  .about-copy p {
+  .about-copy p,
+  .contact-box p {
     font-size: 0.98rem;
     line-height: 1.75;
     margin-bottom: 1rem;
@@ -1720,17 +1756,6 @@ body.aforizmi-page .brand:focus-visible .signature-mark {
     aspect-ratio: 4 / 5;
   }
 
-  .contact-box h2 {
-    font-size: clamp(2.2rem, 10vw, 3.2rem);
-    margin-bottom: 14px;
-  }
-
-  .contact-box p {
-    font-size: 0.98rem;
-    line-height: 1.75;
-    margin-bottom: 22px;
-  }
-
   .contact-links {
     flex-direction: column;
     align-items: stretch;
@@ -1742,376 +1767,65 @@ body.aforizmi-page .brand:focus-visible .signature-mark {
   }
 
   .site-footer {
-    padding: 24px 0 28px;
     text-align: center;
     font-size: 0.88rem;
+    padding: 24px 0 28px;
   }
 
-  /* popup kritika na telefonu */
-  .kritika-overlay {
+  /* galerije mobilno */
+  .subhero,
+  .gallery-subhero {
+    display: none;
+  }
+
+  .gallery-section {
+    padding-top: 20px;
+  }
+
+  .gallery-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
     padding: 10px;
   }
 
-  .kritika-modal {
-    width: calc(100vw - 20px);
-    max-height: 88vh;
-    padding: 48px 18px 24px;
-  }
-
-  .kritika-modal::before {
-    inset: 10px;
-  }
-
-  .kritika-close {
-    top: 14px;
-    right: 16px;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-  }
-
-  .kritika-content h2 {
-    font-size: clamp(1.9rem, 9vw, 2.5rem);
-    line-height: 1.05;
-    margin-bottom: 16px;
-  }
-
-  .kritika-content p {
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 16px;
-  }
-
-  .kritika-quote footer {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-top: 10px;
-  }
-
-  /* galerija lightbox mobilni */
   .lightbox {
-    padding: 52px 12px 16px;
+    padding: 54px 10px 18px;
   }
 
   .gallery-minimal-stage {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
   .gallery-minimal-figure img,
   #galleryLightboxImage {
-      max-height: 70vh;
-  transition: opacity 140ms ease;
+    max-height: 70vh;
+    transition: opacity 220ms ease;
   }
 
   .gallery-minimal-meta {
-    margin-top: 14px;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
+    margin-top: 12px;
   }
 
   .gallery-meta-title,
   #galleryLightboxTitle {
-    width: 100%;
     font-size: 1.2rem;
+    width: 100%;
   }
 
-  .gallery-meta-sep {
-    display: none;
-  }
-
+  .gallery-meta-sep,
   .gallery-nav {
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-  }
-
-  .gallery-nav-prev {
-    order: 2;
-  }
-
-  .gallery-minimal-figure-wrap {
-    order: 1;
-  }
-
-  .gallery-nav-next {
-    order: 3;
-  }
-
-}
-
-
-/* BAS MALI TELEFONI */
-@media (max-width: 420px) {
-  .container {
-    width: min(var(--max), calc(100% - 18px));
-  }
-
-  #about {
-    padding-top: 24px;
-  }
-
-  .section {
-    padding: 46px 0;
-  }
-
-  .entry-meta h3 {
-    font-size: 1.8rem;
-  }
-
-  .about-copy p,
-  .contact-box p,
-  .kritika-content p {
-    font-size: 0.96rem;
-  }
-
-  .kritika-modal {
-    padding: 44px 16px 22px;
-  }
-}
-
-/* dodatno sakrivanje za male telefone */
-@media (max-width: 767px) {
-  .hero {
-    display: none !important;
-  }
-}
-
-@media (max-width: 480px) {
-  #about .about-copy h2 {
-    display: none;
-  }
-
-  #about {
-    padding-top: 20px;
-  }
-}
-/* =========================================
-   MOBILE WORKS BUTTON INSTEAD OF HAMBURGER
-========================================= */
-
-@media (max-width: 767px) {
-  .nav-toggle.works-toggle {
-    width: auto;
-    height: 42px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 16px;
-    border: 1px solid rgba(20, 20, 20, 0.14);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.72);
-    font-family: 'Inter', sans-serif;
-    font-size: 0.74rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(20, 20, 20, 0.88);
-    cursor: pointer;
-    transition: all 220ms ease;
-  }
-
-  .nav-toggle.works-toggle:hover,
-  .nav-toggle.works-toggle:focus-visible {
-    background: rgba(255, 255, 255, 0.92);
-    border-color: rgba(20, 20, 20, 0.22);
-    transform: translateY(-1px);
-  }
-
-  .nav-toggle.works-toggle.is-open {
-    background: rgba(20, 20, 20, 0.92);
-    color: #fff;
-    border-color: rgba(20, 20, 20, 0.92);
-  }
-
-  .nav-toggle.works-toggle span {
     display: none !important;
   }
 
-  .nav {
-    position: fixed;
-    top: 72px;
-    left: 12px;
-    right: 12px;
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    padding: 10px 14px;
-    background: rgba(248, 247, 243, 0.98);
-    border: 1px solid rgba(20, 20, 20, 0.08);
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
-    z-index: 110;
-  }
-
-  .nav.open {
-    display: flex;
-  }
-
-  .nav a {
+  .gallery-tap-zone {
     display: block;
-    width: 100%;
-    padding: 14px 4px;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(20, 20, 20, 0.9);
-    border-bottom: 1px solid rgba(20, 20, 20, 0.06);
   }
 
-  .nav a:last-child {
-    border-bottom: none;
-  }
-
-  .nav a::after {
-    display: none;
-  }
-}
-
-/* =========================================
-   MOBILE WORKS PANEL
-========================================= */
-
-@media (min-width: 768px) {
-  .mobile-works-panel {
-    display: none !important;
-  }
-
-  .nav-toggle.works-toggle {
-    display: none !important;
-  }
-}
-
-@media (max-width: 767px) {
-  body.menu-open {
-    overflow: hidden;
-  }
-
-  .site-header {
-    background: rgba(248, 247, 243, 0.96);
-  }
-
-  .header-inner {
-    position: relative;
-    min-height: 72px;
-    gap: 16px;
-  }
-
-  .signature-mark {
-    height: 34px;
-  }
-
-  /* desktop nav sakrij samo na mobilnom */
-  .nav {
-    display: none !important;
-  }
-
-  /* lepo dugme */
-  .nav-toggle.works-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 42px;
-    padding: 0 16px;
-    border: 1px solid rgba(20, 20, 20, 0.14);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.74);
-    font-family: 'Inter', sans-serif;
-    font-size: 0.74rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(20, 20, 20, 0.88);
-    cursor: pointer;
-    transition: all 220ms ease;
-    white-space: nowrap;
-  }
-
-  .nav-toggle.works-toggle:hover,
-  .nav-toggle.works-toggle:focus-visible {
-    background: rgba(255, 255, 255, 0.92);
-    border-color: rgba(20, 20, 20, 0.22);
-    transform: translateY(-1px);
-  }
-
-  .nav-toggle.works-toggle.is-open {
-    background: rgba(20, 20, 20, 0.92);
-    color: #fff;
-    border-color: rgba(20, 20, 20, 0.92);
-  }
-
-  /* panel */
-  .mobile-works-panel {
-    position: fixed;
-    top: 72px;
-    left: 12px;
-    right: 12px;
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    padding: 10px 14px;
-    background: rgba(248, 247, 243, 0.98);
-    border: 1px solid rgba(20, 20, 20, 0.08);
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
-    z-index: 110;
-  }
-
-  .mobile-works-panel.open {
-    display: flex;
-  }
-
-  .mobile-works-panel a {
-    display: block;
-    width: 100%;
-    padding: 14px 4px;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(20, 20, 20, 0.9);
-    border-bottom: 1px solid rgba(20, 20, 20, 0.06);
-  }
-
-  .mobile-works-panel a:last-child {
-    border-bottom: none;
-  }
-}
-
-/* =========================================
-   MOBILE CLEANUP
-========================================= */
-
-@media (max-width: 767px) {
-  /* sakrij naslov Biografija */
-  #about .about-copy h2 {
-    display: none;
-  }
-
-  /* sakrij naslov Kontakt */
-  #contact h2 {
-    display: none;
-  }
-
-  /* malo zategni spacing kad nema naslova */
-  #about {
-    padding-top: 24px;
-  }
-
-  #contact .contact-box p {
-    margin-bottom: 18px;
-  }
-}
-
-/* baš mali telefoni */
-@media (max-width: 480px) {
-  #about {
-    padding-top: 18px;
-  }
-
-  #contact {
-    padding-top: 40px;
-  }
-}
-
-/* =========================================
-   LIKOVNA KRITIKA FULL WIDTH NA MOBILNOM
-========================================= */
-
-@media (max-width: 767px) {
+  /* kritika popup mobilno */
   .kritika-overlay {
     padding: 0;
   }
@@ -2157,501 +1871,230 @@ body.aforizmi-page .brand:focus-visible .signature-mark {
     top: 14px;
     right: 16px;
     z-index: 2;
-  }
-}
-
-/* =========================================
-   GALLERY MOBILE SYSTEM (ALL PAGES)
-========================================= */
-
-@media (max-width: 767px) {
-
-  /* ukloni "hero" deo galerije */
-  .gallery-subhero {
-    display: none;
+    font-size: 10px;
+    letter-spacing: 0.14em;
   }
 
-  /* fallback ako nisi dodao klasu */
-  .subhero {
-    display: none;
+  /* kritika page mobilno */
+  .kritika-page-main {
+    padding-top: 12px;
+    padding-bottom: 48px;
   }
 
-  /* grid → jedna kolona */
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .kritika-page-head {
+    margin-bottom: 18px;
   }
 
-  /* slike čistije */
-  .gallery-card img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: auto;
-    padding: 10px;
+  .kritika-page-body h3 {
+    margin-bottom: 20px;
   }
 
-  /* malo manje margine oko sekcije */
-  .gallery-section {
-    padding-top: 20px;
+  .kritika-page-body p {
+    max-width: 100%;
   }
 
-  .section {
-    padding: 40px 0;
-  }
-}
-
-/* =========================================
-   LIGHTBOX MOBILE IMPROVEMENT
-========================================= */
-
-@media (max-width: 767px) {
-
-  .lightbox {
-    padding: 60px 10px 20px;
+  /* aforizmi mobilno */
+  .aforizmi-bg-texture {
+    inset: -20px;
+    transform: translate3d(0, 0, 0) scale(1.03);
   }
 
-  .gallery-minimal-stage {
-    grid-template-columns: 1fr;
-    gap: 10px;
+  .aforizmi-hero {
+    min-height: 36vh;
+    padding-top: 48px;
   }
 
-  /* slika veća */
-  .gallery-minimal-figure img,
-  #galleryLightboxImage {
-    max-height: 70vh;
-  }
-
-  /* meta ispod slike */
-  .gallery-minimal-meta {
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 12px;
-  }
-
-  .gallery-meta-title {
-    font-size: 1.2rem;
-  }
-
-  /* sakrij / separator */
-  .gallery-meta-sep {
-    display: none;
-  }
-
-  /* navigacija ispod slike */
-  .gallery-nav {
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-  }
-
-  .gallery-nav-prev {
-    order: 2;
-  }
-
-  .gallery-minimal-figure-wrap {
-    order: 1;
-  }
-
-  .gallery-nav-next {
-    order: 3;
-  }
-}
-
-/* =========================================
-   HIDE NAV BUTTONS ON MOBILE (LIGHTBOX)
-========================================= */
-
-@media (max-width: 767px) {
-  .gallery-nav {
-    display: none !important;
-  }
-}
-
-/* =========================================
-   GALLERY MOBILE HEADER + LIGHTBOX POLISH
-========================================= */
-
-.gallery-lightbox-minimal {
-  opacity: 0;
-  transition: opacity 240ms ease;
-}
-
-.gallery-lightbox-minimal.active {
-  opacity: 1;
-}
-
-.gallery-minimal-figure {
-  position: relative;
-}
-
-.gallery-tap-zone {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 26%;
-  z-index: 2;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-}
-
-.gallery-tap-zone-left {
-  left: 0;
-}
-
-.gallery-tap-zone-right {
-  right: 0;
-}
-
-@media (min-width: 768px) {
-  .gallery-home-link {
-    display: none !important;
-  }
-
-  .gallery-tap-zone {
-    display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  /* galerijske stranice: nema menu/dropdown */
-  body[data-gallery-page] .nav {
-    display: none !important;
-  }
-
-  body[data-gallery-page] .header-inner {
-    min-height: 72px;
-    gap: 16px;
-  }
-
-  body[data-gallery-page] .signature-mark {
-    height: 34px;
-  }
-
-  body[data-gallery-page] .gallery-home-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 40px;
-    padding: 0 14px;
-    border: 1px solid rgba(20, 20, 20, 0.14);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.74);
-    font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(20, 20, 20, 0.88);
-    white-space: nowrap;
-    transition: all 220ms ease;
-  }
-
-  body[data-gallery-page] .gallery-home-link:hover,
-  body[data-gallery-page] .gallery-home-link:focus-visible {
-    background: rgba(255, 255, 255, 0.92);
-    border-color: rgba(20, 20, 20, 0.22);
-    transform: translateY(-1px);
-  }
-
-  /* stari menu button sakrij na galerijama */
-  body[data-gallery-page] .nav-toggle:not(.gallery-home-link) {
-    display: none !important;
-  }
-
-  /* lightbox mobilni */
-  .lightbox {
-    padding: 54px 10px 18px;
-  }
-
-  .gallery-minimal-stage {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .gallery-minimal-figure img,
-  #galleryLightboxImage {
-    max-height: 70vh;
-    transition: opacity 220ms ease;
-  }
-
-  .gallery-minimal-meta {
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 12px;
-  }
-
-  .gallery-meta-title,
-  #galleryLightboxTitle {
-    font-size: 1.2rem;
-    width: 100%;
-  }
-
-  .gallery-meta-sep {
-    display: none;
-  }
-
-  .gallery-nav {
-    display: none !important;
-  }
-
-  .gallery-tap-zone {
-    display: block;
-  }
-}
-
-@media (max-width: 767px) {
-  body[data-gallery-page] .gallery-home-link {
-    width: auto !important;
-    height: auto !important;
-    min-height: 40px;
-    padding: 0 14px;
-    border-radius: 999px;
-  }
-
-  body[data-gallery-page] .gallery-home-link::before,
-  body[data-gallery-page] .gallery-home-link::after {
-    display: none !important;
-    content: none !important;
-  }
-}
-
-@media (max-width: 767px) {
-  body[data-gallery-page] .gallery-home-link,
-  body.aforizmi-page .gallery-home-link {
-    all: unset;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 40px;
-    padding: 0 14px;
-    border: 1px solid rgba(20, 20, 20, 0.14);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.74);
-    font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(20, 20, 20, 0.88);
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all 220ms ease;
-  }
-
-  body[data-gallery-page] .gallery-home-link:hover,
-  body[data-gallery-page] .gallery-home-link:focus-visible,
-  body.aforizmi-page .gallery-home-link:hover,
-  body.aforizmi-page .gallery-home-link:focus-visible {
-    background: rgba(255, 255, 255, 0.92);
-    border-color: rgba(20, 20, 20, 0.22);
-    transform: translateY(-1px);
-  }
-
-  body[data-gallery-page] .gallery-home-link::before,
-  body[data-gallery-page] .gallery-home-link::after,
-  body.aforizmi-page .gallery-home-link::before,
-  body.aforizmi-page .gallery-home-link::after {
-    content: none !important;
-    display: none !important;
-  }
-}
-
-/* UREDNIJI RASPORED AFORIZAMA */
-
-.aforizmi-list .container {
-  max-width: 1180px;
-}
-
-.aforizmi-item {
-  margin-bottom: 34px;
-}
-
-.aforizmi-paper-wrap {
-  display: flex;
-}
-
-.aforizmi-paper {
-  width: min(100%, 760px);
-  margin: 0 auto;
-  transform-origin: center center;
-}
-
-/* osnovne varijacije po redovima */
-.r1  { justify-content: flex-start; }
-.r2  { justify-content: flex-end; }
-.r3  { justify-content: center; }
-.r4  { justify-content: flex-start; }
-.r5  { justify-content: flex-end; }
-.r6  { justify-content: center; }
-.r7  { justify-content: flex-start; }
-.r8  { justify-content: flex-end; }
-.r9  { justify-content: center; }
-.r10 { justify-content: flex-start; }
-.r11 { justify-content: flex-end; }
-.r12 { justify-content: center; }
-.r13 { justify-content: flex-start; }
-.r14 { justify-content: flex-end; }
-.r15 { justify-content: center; }
-.r16 { justify-content: flex-start; }
-.r17 { justify-content: flex-end; }
-.r18 { justify-content: center; }
-.r19 { justify-content: flex-start; }
-.r20 { justify-content: flex-end; }
-.r21 { justify-content: center; }
-.r22 { justify-content: flex-start; }
-.r23 { justify-content: flex-end; }
-.r24 { justify-content: center; }
-.r25 { justify-content: flex-start; }
-.r26 { justify-content: flex-end; }
-.r27 { justify-content: center; }
-.r28 { justify-content: flex-start; }
-
-/* blage razlike u nagibu i širini, da izgleda prirodnije */
-.r1  .aforizmi-paper { max-width: 700px; transform: rotate(-1.1deg); }
-.r2  .aforizmi-paper { max-width: 640px; transform: rotate(1.3deg); }
-.r3  .aforizmi-paper { max-width: 760px; transform: rotate(-0.6deg); }
-.r4  .aforizmi-paper { max-width: 680px; transform: rotate(1deg); }
-.r5  .aforizmi-paper { max-width: 730px; transform: rotate(-1.4deg); }
-
-.r6  .aforizmi-paper { max-width: 610px; transform: rotate(0.8deg); }
-.r7  .aforizmi-paper { max-width: 690px; transform: rotate(-1deg); }
-.r8  .aforizmi-paper { max-width: 660px; transform: rotate(1.2deg); }
-.r9  .aforizmi-paper { max-width: 720px; transform: rotate(-0.7deg); }
-.r10 .aforizmi-paper { max-width: 650px; transform: rotate(1deg); }
-
-.r11 .aforizmi-paper { max-width: 610px; transform: rotate(-1.1deg); }
-.r12 .aforizmi-paper { max-width: 760px; transform: rotate(0.7deg); }
-.r13 .aforizmi-paper { max-width: 640px; transform: rotate(-0.9deg); }
-.r14 .aforizmi-paper { max-width: 620px; transform: rotate(1.1deg); }
-.r15 .aforizmi-paper { max-width: 650px; transform: rotate(-0.6deg); }
-
-.r16 .aforizmi-paper { max-width: 700px; transform: rotate(0.9deg); }
-.r17 .aforizmi-paper { max-width: 670px; transform: rotate(-1.3deg); }
-.r18 .aforizmi-paper { max-width: 720px; transform: rotate(0.6deg); }
-.r19 .aforizmi-paper { max-width: 740px; transform: rotate(-0.8deg); }
-.r20 .aforizmi-paper { max-width: 760px; transform: rotate(1deg); }
-
-.r21 .aforizmi-paper { max-width: 560px; transform: rotate(-1deg); }
-.r22 .aforizmi-paper { max-width: 610px; transform: rotate(1.2deg); }
-.r23 .aforizmi-paper { max-width: 570px; transform: rotate(-0.9deg); }
-.r24 .aforizmi-paper { max-width: 640px; transform: rotate(0.7deg); }
-.r25 .aforizmi-paper { max-width: 630px; transform: rotate(-1.1deg); }
-
-.r26 .aforizmi-paper { max-width: 600px; transform: rotate(0.9deg); }
-.r27 .aforizmi-paper { max-width: 720px; transform: rotate(-0.8deg); }
-.r28 .aforizmi-paper { max-width: 760px; transform: rotate(1deg); }
-
-/* bolji razmak unutra da svi deluju kao prvih 5 */
-.aforizmi-content {
-  padding: 38px 42px;
-}
-
-.aforizmi-text {
-  line-height: 1.5;
-}
-
-/* malo više vazduha za duže aforizme */
-.paper-e .aforizmi-content,
-.paper-f .aforizmi-content {
-  padding: 42px 44px;
-}
-
-/* da tape/ukrasi ostanu mirni */
-.aforizmi-paper:hover {
-  transform: translateY(-2px) rotate(var(--paper-rot, 0deg));
-}
-.r1  .aforizmi-paper { --paper-rot: -1.1deg; }
-.r2  .aforizmi-paper { --paper-rot: 1.3deg; }
-.r3  .aforizmi-paper { --paper-rot: -0.6deg; }
-.r4  .aforizmi-paper { --paper-rot: 1deg; }
-.r5  .aforizmi-paper { --paper-rot: -1.4deg; }
-.r6  .aforizmi-paper { --paper-rot: 0.8deg; }
-.r7  .aforizmi-paper { --paper-rot: -1deg; }
-.r8  .aforizmi-paper { --paper-rot: 1.2deg; }
-.r9  .aforizmi-paper { --paper-rot: -0.7deg; }
-.r10 .aforizmi-paper { --paper-rot: 1deg; }
-.r11 .aforizmi-paper { --paper-rot: -1.1deg; }
-.r12 .aforizmi-paper { --paper-rot: 0.7deg; }
-.r13 .aforizmi-paper { --paper-rot: -0.9deg; }
-.r14 .aforizmi-paper { --paper-rot: 1.1deg; }
-.r15 .aforizmi-paper { --paper-rot: -0.6deg; }
-.r16 .aforizmi-paper { --paper-rot: 0.9deg; }
-.r17 .aforizmi-paper { --paper-rot: -1.3deg; }
-.r18 .aforizmi-paper { --paper-rot: 0.6deg; }
-.r19 .aforizmi-paper { --paper-rot: -0.8deg; }
-.r20 .aforizmi-paper { --paper-rot: 1deg; }
-.r21 .aforizmi-paper { --paper-rot: -1deg; }
-.r22 .aforizmi-paper { --paper-rot: 1.2deg; }
-.r23 .aforizmi-paper { --paper-rot: -0.9deg; }
-.r24 .aforizmi-paper { --paper-rot: 0.7deg; }
-.r25 .aforizmi-paper { --paper-rot: -1.1deg; }
-.r26 .aforizmi-paper { --paper-rot: 0.9deg; }
-.r27 .aforizmi-paper { --paper-rot: -0.8deg; }
-.r28 .aforizmi-paper { --paper-rot: 1deg; }
-
-/* responsive da se na užem ekranu ne raspadne */
-@media (max-width: 900px) {
-  .aforizmi-paper-wrap {
-    justify-content: center !important;
+  .aforizmi-item {
+    padding: 18px 0 42px;
   }
 
   .aforizmi-paper {
-    max-width: 100% !important;
-    transform: rotate(0deg) !important;
+    width: fit-content !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    padding: 40px 22px 34px !important;
   }
 
-  .aforizmi-content {
-    padding: 30px 26px;
+  .aforizmi-text {
+    max-width: 24ch !important;
+    font-size: clamp(18px, 4.5vw, 24px);
+    line-height: 1.5;
+  }
+
+  .aforizmi-author {
+    max-width: 24ch !important;
+    margin-top: 18px;
+  }
+
+  .aforizmi-line {
+    left: 26px;
+    width: 40px;
+  }
+
+  .aforizmi-tape,
+  .aforizmi-tape.left,
+  .aforizmi-tape.right,
+  .aforizmi-tape.center {
+    width: 94px;
+    height: 28px;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+  }
+
+  .aforizmi-brush {
+    width: 126px;
+    height: 32px;
+    right: -16px;
+    bottom: 18px;
+  }
+
+  .aforizmi-paper-shadow {
+    left: 8%;
+    right: 8%;
+    height: 20px;
+    bottom: -14px;
   }
 }
 
-/* =========================================
-   SEO + PERFORMANCE POLISH
-========================================= */
-
-.sr-only {
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+@media (min-width: 768px) {
+  .mobile-works-panel,
+  .nav-toggle.works-toggle,
+  .gallery-home-link,
+  .gallery-tap-zone {
+    display: none !important;
+  }
 }
 
-:focus-visible {
-  outline: 2px solid rgba(20, 20, 20, 0.7);
-  outline-offset: 3px;
-}
-
-img {
-  height: auto;
-}
-
-#galleryLightboxImage {
-  transition: opacity 180ms ease;
-}
-
-.quote-margin {
-  margin-top: 0.45em;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+@media (max-width: 480px) {
+  .container {
+    width: min(var(--max), calc(100% - 18px));
   }
 
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  #about {
+    padding-top: 18px;
   }
 
-  .hero-slide img,
-  .artist-quote,
-  .aforizmi-paper-wrap {
-    animation: none !important;
-    transform: none !important;
+  .section {
+    padding: 46px 0;
+  }
+
+  .entry-meta h3 {
+    font-size: 1.8rem;
+  }
+
+  .about-copy p,
+  .contact-box p,
+  .kritika-content p,
+  .kritika-page-body p {
+    font-size: 0.96rem;
+  }
+
+  .kritika-modal {
+    padding: 44px 16px 22px;
+  }
+}
+
+/* =========================
+   KRITIKA PAGE — FINAL POLISH
+========================= */
+
+.kritika-page-main {
+  padding: 24px 0 80px;
+}
+
+.kritika-section {
+  padding: 72px 0;
+}
+
+.kritika-page-wrap {
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.kritika-page-head {
+  margin-bottom: 22px;
+}
+
+.kritika-page-head h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #111;
+}
+
+.kritika-page-body {
+  max-width: 760px;
+}
+
+.kritika-page-body h3 {
+  margin: 0 0 24px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  color: #1a1a1a;
+}
+
+.kritika-page-body p {
+  margin: 0 0 20px;
+  font-family: "Literata", serif;
+  font-size: 1.06rem;
+  line-height: 1.92;
+  letter-spacing: 0.002em;
+  color: #1b1b1b;
+  max-width: 70ch;
+}
+
+.kritika-page-body p:last-child {
+  margin-bottom: 0;
+}
+
+.kritika-page-signoff {
+  margin-top: 34px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.25;
+  color: #111;
+}
+
+.kritika-page .site-footer {
+  border-top: 1px solid rgba(20, 20, 20, 0.08);
+}
+
+@media (max-width: 900px) {
+  .kritika-section {
+    padding: 56px 0;
+  }
+
+  .kritika-page-body p {
+    font-size: 1rem;
+    line-height: 1.82;
+  }
+
+  .kritika-page-signoff {
+    font-size: 1.28rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .kritika-page-main {
+    padding: 10px 0 48px;
+  }
+
+  .kritika-page-head {
+    margin-bottom: 16px;
+  }
+
+  .kritika-page-body h3 {
+    margin-bottom: 18px;
+  }
+
+  .kritika-page-body p {
+    max-width: 100%;
   }
 }

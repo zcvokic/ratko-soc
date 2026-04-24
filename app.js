@@ -198,10 +198,10 @@ const galleryData = {
     { src: 'images/gallery/platno/ratko-soc-neznam-naziv-6-gallery.jpg', title: 'Nepoznat naziv 6', year: '', technique: '' },
     { src: 'images/gallery/platno/ratko-soc-neznam-naziv-gallery.jpg', title: 'Nepoznat naziv', year: '', technique: '' },
     { src: 'images/gallery/platno/ratko-soc-njegos-triptih-gallery.jpg', title: 'Njegoš triptih', year: '', technique: 'Ulje na platnu' },
-    { src: 'images/gallery/platno/ratko-soc-nostalgija-gallery.jpg', title: 'Nostalgija', year: '', technique: 'Ulje na platnu' },
+    { src: 'images/gallery/platno/ratko-soc-prijatelji-gallery.jpg', title: 'Prijatelji', year: '1998', technique: 'Ulje na platnu' },
     { src: 'images/gallery/platno/ratko-soc-osam-tamburasa-triptih-gallery.jpg', title: 'Osam tamburaša', year: '2008', technique: 'Ulje na platnu' },
     { src: 'images/gallery/platno/ratko-soc-predvecerje-gallery.jpg', title: 'Predvečerje', year: '1998', technique: 'Ulje na platnu' },
-    { src: 'images/gallery/platno/ratko-soc-prijatelji-gallery.jpg', title: 'Prijatelji', year: '1998', technique: 'Ulje na platnu' },
+    { src: 'images/gallery/platno/ratko-soc-nostalgija-gallery.jpg', title: 'Nostalgija', year: '1998', technique: 'Ulje na platnu' },
     { src: 'images/gallery/platno/ratko-soc-profil-gallery.jpg', title: 'Profil', year: '2009', technique: 'Ulje na platnu' },
     { src: 'images/gallery/platno/ratko-soc-prometej-gallery.jpg', title: 'Prometej', year: '1999', technique: 'Ulje na platnu' },
     { src: 'images/gallery/platno/ratko-soc-radost-gallery.jpg', title: 'Radost', year: '1998', technique: 'Ulje na platnu' },
@@ -296,20 +296,28 @@ ensureDomGalleryData();
 
   if (!lightbox || !lightboxImg) return;
 
-  let currentGallery = null;
+let currentGallery = null;
   let currentIndex = 0;
   let touchStartX = 0;
   let touchEndX = 0;
+  let touchStartY = 0;
+  let touchMoved = false;
   let isAnimating = false;
+  let pendingIndex = null;
 
   function validItems(galleryName) {
     return (galleryData[galleryName] || []).filter(Boolean);
   }
 
-  function applyFadeAndSwap(item) {
-    if (!item || isAnimating) return;
-    isAnimating = true;
+function applyFadeAndSwap(item) {
+    if (!item) return;
 
+    if (isAnimating) {
+      pendingIndex = currentIndex;
+      return;
+    }
+
+    isAnimating = true;
     lightboxImg.classList.remove("is-visible");
     lightboxImg.classList.add("is-fading");
 
@@ -331,14 +339,18 @@ ensureDomGalleryData();
         lightboxImg.classList.add("is-visible");
         isAnimating = false;
         lightboxImg.removeEventListener("load", reveal);
+
+        if (pendingIndex !== null) {
+          const idx = pendingIndex;
+          pendingIndex = null;
+          currentIndex = idx;
+          updateLightbox();
+        }
       };
 
       lightboxImg.addEventListener("load", reveal);
-
       // fallback ako je slika već iz cache-a
-      if (lightboxImg.complete) {
-        reveal();
-      }
+      if (lightboxImg.complete) reveal();
     }, 120);
   }
 
@@ -422,34 +434,30 @@ ensureDomGalleryData();
   if (tapPrev) tapPrev.addEventListener("click", prevImage);
 
   if (lightboxFigure) {
-    lightboxFigure.addEventListener(
-      "touchstart",
-      (e) => {
-        if (!e.changedTouches || !e.changedTouches.length) return;
-        touchStartX = e.changedTouches[0].clientX;
-        touchEndX = touchStartX;
-      },
-      { passive: true }
-    );
+    lightboxFigure.addEventListener("touchstart", (e) => {
+      if (!e.changedTouches?.length) return;
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
+      touchEndX = touchStartX;
+      touchMoved = false;
+    }, { passive: true });
 
-    lightboxFigure.addEventListener(
-      "touchmove",
-      (e) => {
-        if (!e.changedTouches || !e.changedTouches.length) return;
-        touchEndX = e.changedTouches[0].clientX;
-      },
-      { passive: true }
-    );
+    lightboxFigure.addEventListener("touchmove", (e) => {
+      if (!e.changedTouches?.length) return;
+      touchEndX = e.changedTouches[0].clientX;
+      const deltaY = Math.abs(e.changedTouches[0].clientY - touchStartY);
+      const deltaX = Math.abs(touchEndX - touchStartX);
+      if (deltaX > deltaY && deltaX > 10) touchMoved = true;
+    }, { passive: true });
 
-    lightboxFigure.addEventListener(
-      "touchend",
-      (e) => {
-        if (!e.changedTouches || !e.changedTouches.length) return;
+    lightboxFigure.addEventListener("touchend", (e) => {
+      if (!e.changedTouches?.length) return;
+      if (touchMoved) {
         touchEndX = e.changedTouches[0].clientX;
         handleSwipe();
-      },
-      { passive: true }
-    );
+      }
+      touchMoved = false;
+    }, { passive: true });
   }
 
   lightbox.addEventListener("click", (e) => {
@@ -472,4 +480,77 @@ ensureDomGalleryData();
   window.addEventListener("scroll", () => {
     document.body.classList.toggle("scrolled", window.scrollY > 20);
   });
+})();
+
+// ==========================
+// back to top
+// ==========================
+(() => {
+  const btn = $("#backToTop");
+  if (!btn) return;
+
+  window.addEventListener("scroll", () => {
+    btn.classList.toggle("visible", window.scrollY > 400);
+  }, { passive: true });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+})();
+
+// ==========================
+// kritika side progress
+// ==========================
+(() => {
+  const dots = $$(".kritika-progress-dot");
+  if (!dots.length) return;
+
+  const sections = dots.map(dot =>
+    document.getElementById(dot.dataset.target)
+  ).filter(Boolean);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        dots.forEach(dot => {
+          dot.classList.toggle("active", dot.dataset.target === id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(section => observer.observe(section));
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const target = document.getElementById(dot.dataset.target);
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+})();
+
+// ==========================
+// kritika active nav on scroll
+// ==========================
+(() => {
+  const navLinks = $$(".kritika-page .nav a[href^='#']");
+  if (!navLinks.length) return;
+
+  const sections = navLinks.map(link =>
+    document.getElementById(link.getAttribute("href").slice(1))
+  ).filter(Boolean);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.toggle("is-current", link.getAttribute("href") === `#${id}`);
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(section => observer.observe(section));
 })();
